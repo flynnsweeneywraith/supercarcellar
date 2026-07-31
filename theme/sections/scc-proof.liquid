@@ -1,0 +1,187 @@
+{%- comment -%}
+  Supercar Cellar — Fit/compatibility, social proof (placeholder, OFF by default),
+  guarantee + shipping, FAQ accordion (+ FAQPage JSON-LD), final CTA band.
+{%- endcomment -%}
+
+{%- style -%}
+  .scc-fit{padding-block:var(--scc-gap,96px)}
+  .scc-fit__marques{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+  .scc-fit__marques span{border:1px solid var(--scc-line,rgba(230,231,234,.08));border-radius:2px;
+    padding:10px 18px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--scc-mut,#9ea0a8)}
+  .scc-fit p.lede{color:var(--scc-mut,#9ea0a8);max-width:52ch;margin-top:20px;font-size:clamp(16px,1.35vw,19px)}
+
+  .scc-reviews{border-block:1px solid var(--scc-line,rgba(230,231,234,.08));background:var(--scc-panel,#111114);padding-block:var(--scc-gap,96px)}
+  .scc-reviews__grid{display:grid;gap:22px;margin-top:48px}
+  .scc-reviews__card{border:1px solid var(--scc-line,rgba(230,231,234,.08));border-radius:2px;padding:30px;background:var(--scc-bg,#0a0a0c)}
+  .scc-reviews__card blockquote{font-size:16px;line-height:1.6}
+  .scc-reviews__card cite{display:block;margin-top:18px;font-style:normal;font-size:13px;color:var(--scc-mut,#9ea0a8)}
+  .scc-reviews__ph{border:1px dashed rgba(230,231,234,.22);color:#6a6c74;font-size:13px;padding:30px;border-radius:2px}
+  @media(min-width:900px){.scc-reviews__grid{grid-template-columns:repeat(3,1fr)}}
+
+  .scc-ship{padding-block:var(--scc-gap,96px)}
+  .scc-ship__grid{display:grid;gap:22px;margin-top:48px}
+  .scc-ship__cell{border-top:1px solid var(--scc-line,rgba(230,231,234,.08));padding-top:24px}
+  .scc-ship__cell h3{font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;margin-bottom:12px}
+  .scc-ship__cell p{color:var(--scc-mut,#9ea0a8);font-size:14.5px;max-width:36ch}
+  @media(min-width:768px){.scc-ship__grid{grid-template-columns:repeat(3,1fr);gap:44px}}
+
+  .scc-faq{border-top:1px solid var(--scc-line,rgba(230,231,234,.08));padding-block:var(--scc-gap,96px)}
+  .scc-faq__list{margin-top:44px;max-width:820px}
+  .scc-faq details{border-bottom:1px solid var(--scc-line,rgba(230,231,234,.08))}
+  .scc-faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;
+    gap:20px;padding:22px 0;font-weight:700;font-size:16.5px}
+  .scc-faq summary::-webkit-details-marker{display:none}
+  .scc-faq summary::after{content:"+";font-size:22px;font-weight:400;color:var(--scc-mut,#9ea0a8);flex:none;transition:transform .2s ease}
+  .scc-faq details[open] summary::after{transform:rotate(45deg)}
+  .scc-faq summary:focus-visible{outline:2px solid var(--scc-acc-hi,#a52534);outline-offset:4px}
+  .scc-faq details p{color:var(--scc-mut,#9ea0a8);padding:0 0 24px;max-width:62ch}
+
+  .scc-final{border-top:1px solid var(--scc-line,rgba(230,231,234,.08));background:
+    radial-gradient(80% 120% at 50% 120%,rgba(142,31,44,.22),transparent 60%),var(--scc-panel,#111114);
+    padding-block:clamp(72px,10vw,140px);text-align:center}
+  .scc-final h2{font-size:clamp(32px,4.6vw,64px);font-weight:800;letter-spacing:-.02em;line-height:1.02;
+    text-wrap:balance;max-width:20ch;margin:0 auto 18px}
+  .scc-final p{color:var(--scc-mut,#9ea0a8);margin-bottom:36px}
+  .scc-final .scc-fine{font-size:12.5px;color:#6a6c74;margin:22px 0 0}
+{%- endstyle -%}
+
+<div class="scc">
+
+  <section class="scc-fit">
+    <div class="scc-wrap">
+      <p class="scc-label scc-reveal">{{ section.settings.fit_eyebrow }}</p>
+      <h2 class="scc-h2 scc-reveal" style="font-size:clamp(30px,3.8vw,52px);font-weight:800;letter-spacing:-.02em;margin-top:18px;line-height:1.04">{{ section.settings.fit_heading }}</h2>
+      <p class="lede scc-reveal">{{ section.settings.fit_text }}</p>
+      <div class="scc-fit__marques scc-reveal">
+        {%- assign marques = section.settings.marques | split: ',' -%}
+        {%- for m in marques -%}<span>{{ m | strip }}</span>{%- endfor -%}
+      </div>
+    </div>
+  </section>
+
+  {%- if section.settings.show_reviews -%}
+  <section class="scc-reviews">
+    <div class="scc-wrap">
+      <p class="scc-label scc-reveal">{{ section.settings.reviews_eyebrow }}</p>
+      <div class="scc-reviews__grid">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'review' -%}
+          <div class="scc-reviews__card scc-reveal" {{ block.shopify_attributes }}>
+            <blockquote>{{ block.settings.quote }}</blockquote>
+            <cite>{{ block.settings.author }}</cite>
+          </div>
+          {%- endif -%}
+        {%- endfor -%}
+        {%- if section.blocks.size == 0 -%}
+          <div class="scc-reviews__ph">PLACEHOLDER · add real customer reviews as blocks in the theme editor. This section stays hidden until "Show reviews" is enabled.</div>
+        {%- endif -%}
+      </div>
+    </div>
+  </section>
+  {%- endif -%}
+
+  <section class="scc-ship">
+    <div class="scc-wrap">
+      <p class="scc-label scc-reveal">{{ section.settings.ship_eyebrow }}</p>
+      <div class="scc-ship__grid">
+        <div class="scc-ship__cell scc-reveal"><h3>{{ section.settings.ship_1_title }}</h3><p>{{ section.settings.ship_1_body }}</p></div>
+        <div class="scc-ship__cell scc-reveal" style="transition-delay:.07s"><h3>{{ section.settings.ship_2_title }}</h3><p>{{ section.settings.ship_2_body }}</p></div>
+        <div class="scc-ship__cell scc-reveal" style="transition-delay:.14s"><h3>{{ section.settings.ship_3_title }}</h3><p>{{ section.settings.ship_3_body }}</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="scc-faq">
+    <div class="scc-wrap">
+      <p class="scc-label scc-reveal">{{ section.settings.faq_eyebrow }}</p>
+      <h2 class="scc-h2 scc-reveal" style="font-size:clamp(30px,3.8vw,52px);font-weight:800;letter-spacing:-.02em;margin-top:18px;line-height:1.04">{{ section.settings.faq_heading }}</h2>
+      <div class="scc-faq__list">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'faq' -%}
+          <details {{ block.shopify_attributes }}>
+            <summary>{{ block.settings.q }}</summary>
+            <p>{{ block.settings.a }}</p>
+          </details>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+
+  <section class="scc-final">
+    <div class="scc-wrap">
+      <h2 class="scc-reveal">{{ section.settings.final_heading }}</h2>
+      <p class="scc-reveal">{{ section.settings.final_sub }}</p>
+      <a class="scc-btn scc-reveal" href="#scc-buy">{{ section.settings.final_cta }}</a>
+      <p class="scc-fine">{{ section.settings.final_fine }}</p>
+    </div>
+  </section>
+</div>
+
+{%- assign faq_count = 0 -%}
+{%- for block in section.blocks -%}{%- if block.type == 'faq' -%}{%- assign faq_count = faq_count | plus: 1 -%}{%- endif -%}{%- endfor -%}
+{%- if faq_count > 0 -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {%- assign first = true -%}
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'faq' -%}
+        {%- unless first -%},{%- endunless -%}
+        { "@type": "Question", "name": {{ block.settings.q | json }},
+          "acceptedAnswer": { "@type": "Answer", "text": {{ block.settings.a | json }} } }
+        {%- assign first = false -%}
+      {%- endif -%}
+    {%- endfor -%}
+  ]
+}
+</script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "SCC Proof + FAQ + CTA",
+  "settings": [
+    { "type": "text", "id": "fit_eyebrow", "label": "Fit eyebrow", "default": "Compatibility" },
+    { "type": "text", "id": "fit_heading", "label": "Fit heading", "default": "Any tender. Any car." },
+    { "type": "textarea", "id": "fit_text", "label": "Fit text", "default": "Cord Cushion slides over the cable of common battery tenders and trickle chargers. If your charger runs an unusually thick cable, contact us before ordering and we will confirm fit." },
+    { "type": "text", "id": "marques", "label": "Marques (comma separated)", "default": "Ferrari, Porsche, Lamborghini, McLaren, Aston Martin, Corvette, Classics" },
+    { "type": "checkbox", "id": "show_reviews", "label": "Show reviews section", "default": false },
+    { "type": "text", "id": "reviews_eyebrow", "label": "Reviews eyebrow", "default": "From the garage" },
+    { "type": "text", "id": "ship_eyebrow", "label": "Shipping eyebrow", "default": "The practical part" },
+    { "type": "text", "id": "ship_1_title", "label": "Cell 1 title", "default": "Shipping" },
+    { "type": "textarea", "id": "ship_1_body", "label": "Cell 1 body", "default": "Ships from Australia with tracking. International destinations supported at checkout." },
+    { "type": "text", "id": "ship_2_title", "label": "Cell 2 title", "default": "Duties" },
+    { "type": "textarea", "id": "ship_2_body", "label": "Cell 2 body", "default": "[PLACEHOLDER · confirm duties policy: prices exclude import duties unless stated at checkout]" },
+    { "type": "text", "id": "ship_3_title", "label": "Cell 3 title", "default": "Returns" },
+    { "type": "textarea", "id": "ship_3_body", "label": "Cell 3 body", "default": "[PLACEHOLDER · confirm returns window and conditions before launch]" },
+    { "type": "text", "id": "faq_eyebrow", "label": "FAQ eyebrow", "default": "Sensible questions" },
+    { "type": "text", "id": "faq_heading", "label": "FAQ heading", "default": "Before you ask." },
+    { "type": "text", "id": "final_heading", "label": "Final heading", "default": "Put something soft between the cable and the clear coat." },
+    { "type": "text", "id": "final_sub", "label": "Final subtext", "default": "Fitted in under a minute. Ignored for the rest of the season." },
+    { "type": "text", "id": "final_cta", "label": "Final CTA", "default": "Buy Cord Cushion" },
+    { "type": "text", "id": "final_fine", "label": "Fine print", "default": "Ships from Australia. Pricing shown in your local currency at checkout." }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ item",
+      "settings": [
+        { "type": "text", "id": "q", "label": "Question", "default": "Will it fit my charger's cable?" },
+        { "type": "textarea", "id": "a", "label": "Answer", "default": "It slides over the cable of common battery tenders and trickle chargers. If your charger uses an unusually thick cable, contact us before ordering and we will confirm fit." }
+      ]
+    },
+    {
+      "type": "review",
+      "name": "Review (real only)",
+      "settings": [
+        { "type": "textarea", "id": "quote", "label": "Quote (verbatim, from a real customer)", "default": "[PLACEHOLDER · paste a real customer review here]" },
+        { "type": "text", "id": "author", "label": "Name, car", "default": "[Name, car]" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "SCC Proof + FAQ + CTA" }]
+}
+{% endschema %}

@@ -1,0 +1,143 @@
+{%- comment -%}
+  Supercar Cellar — Problem, How-it-works (numbered SVG system), feature deep-dive.
+  Depends on tokens declared in scc-hero (same page). Safe standalone fallback below.
+{%- endcomment -%}
+
+{%- style -%}
+  .scc-story{background:var(--scc-bg,#0a0a0c);color:var(--scc-ink,#e6e7ea)}
+  .scc-story .scc-h2{font-size:clamp(30px,3.8vw,52px);font-weight:800;letter-spacing:-.02em;font-stretch:110%;
+    line-height:1.04;text-wrap:balance;max-width:22ch}
+  .scc-story__problem{padding-block:var(--scc-gap,96px)}
+  .scc-story__problem-grid{display:grid;gap:40px;align-items:end}
+  .scc-story__problem p.lede{color:var(--scc-mut,#9ea0a8);font-size:clamp(16px,1.35vw,19px);max-width:52ch;margin-top:20px}
+  .scc-story__evidence{background:var(--scc-panel,#111114);border:1px dashed rgba(230,231,234,.22);border-radius:2px;
+    aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;text-align:center;padding:28px}
+  .scc-story__evidence span{color:#6a6c74;font-size:13px;max-width:34ch}
+  @media(min-width:900px){.scc-story__problem-grid{grid-template-columns:1fr 1fr;gap:72px}}
+
+  .scc-how{border-block:1px solid var(--scc-line,rgba(230,231,234,.08));background:var(--scc-panel,#111114);
+    padding-block:var(--scc-gap,96px)}
+  .scc-how__grid{display:grid;gap:48px;margin-top:56px}
+  .scc-how__step{position:relative;padding-top:26px}
+  .scc-how__step::before{content:"";position:absolute;top:0;left:0;width:100%;height:1px;background:var(--scc-line,rgba(230,231,234,.08))}
+  .scc-how__step::after{content:"";position:absolute;top:-1px;left:0;width:44px;height:3px;background:var(--scc-acc,#8e1f2c)}
+  .scc-how__num{display:inline-flex;width:34px;height:34px;border-radius:50%;border:1px solid var(--scc-acc,#8e1f2c);
+    color:var(--scc-ink,#e6e7ea);align-items:center;justify-content:center;font-weight:800;font-size:14px;margin-bottom:16px}
+  .scc-how__step h3{font-size:15px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px}
+  .scc-how__step p{color:var(--scc-mut,#9ea0a8);font-size:14.5px;max-width:30ch}
+  @media(min-width:768px){.scc-how__grid{grid-template-columns:repeat(4,1fr);gap:36px}}
+
+  .scc-feat{padding-block:var(--scc-gap,96px)}
+  .scc-feat__rows{display:grid;gap:clamp(56px,7vw,96px);margin-top:64px}
+  .scc-feat__row{display:grid;gap:36px;align-items:center}
+  .scc-feat__row img{display:block;width:100%;height:auto;border-radius:2px;border:1px solid var(--scc-line,rgba(230,231,234,.08))}
+  .scc-feat__spec{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--scc-acc-hi,#a52534);margin-bottom:14px}
+  .scc-feat__row h3{font-size:clamp(22px,2.4vw,32px);font-weight:800;letter-spacing:-.015em;margin-bottom:14px;line-height:1.1}
+  .scc-feat__row p{color:var(--scc-mut,#9ea0a8);max-width:44ch}
+  @media(min-width:900px){
+    .scc-feat__row{grid-template-columns:1fr 1fr;gap:clamp(48px,6vw,110px)}
+    .scc-feat__row:nth-child(even) > :first-child{order:2}
+  }
+{%- endstyle -%}
+
+<div class="scc scc-story">
+
+  <section class="scc-story__problem">
+    <div class="scc-wrap">
+      <div class="scc-story__problem-grid">
+        <div class="scc-reveal">
+          <p class="scc-label">{{ section.settings.problem_eyebrow }}</p>
+          <h2 class="scc-h2" style="margin-top:18px">{{ section.settings.problem_heading }}</h2>
+          <p class="lede">{{ section.settings.problem_text }}</p>
+        </div>
+        <div class="scc-reveal" style="transition-delay:.1s">
+          {%- if section.settings.problem_image != blank -%}
+            {{ section.settings.problem_image | image_url: width: 1400 | image_tag:
+                widths: '640,960,1400', sizes: '(min-width:900px) 46vw, 92vw', loading: 'lazy' }}
+          {%- else -%}
+            <div class="scc-story__evidence">
+              <span>PLACEHOLDER · macro shot of swirl marks or cable resting on a sill. Supply real photography, then select it in the theme editor.</span>
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="scc-how" id="scc-how">
+    <div class="scc-wrap">
+      <p class="scc-label scc-reveal">{{ section.settings.how_eyebrow }}</p>
+      <h2 class="scc-h2 scc-reveal" style="margin-top:18px">{{ section.settings.how_heading }}</h2>
+      <div class="scc-how__grid">
+        {%- assign step_titles = section.settings.steps_titles | split: '|' -%}
+        {%- assign step_bodies = section.settings.steps_bodies | split: '|' -%}
+        {%- for title in step_titles -%}
+          {%- assign i = forloop.index0 -%}
+          <div class="scc-how__step scc-reveal" style="transition-delay:{{ forloop.index0 | times: 0.08 }}s">
+            <span class="scc-how__num">{{ forloop.index }}</span>
+            <h3>{{ title | strip }}</h3>
+            <p>{{ step_bodies[i] | strip }}</p>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+
+  <section class="scc-feat">
+    <div class="scc-wrap">
+      <p class="scc-label scc-reveal">{{ section.settings.feat_eyebrow }}</p>
+      <h2 class="scc-h2 scc-reveal" style="margin-top:18px">{{ section.settings.feat_heading }}</h2>
+      <div class="scc-feat__rows">
+        {%- for block in section.blocks -%}
+          <div class="scc-feat__row scc-reveal" {{ block.shopify_attributes }}>
+            <div>
+              {%- if block.settings.image != blank -%}
+                {{ block.settings.image | image_url: width: 1400 | image_tag:
+                    widths: '640,960,1400', sizes: '(min-width:900px) 46vw, 92vw', loading: 'lazy' }}
+              {%- else -%}
+                <img src="https://cdn.shopify.com/s/files/1/0720/0296/1578/files/sleeve-coiled.png?v=1785465889"
+                  alt="Cord Cushion matte woven sleeve over a battery tender cable" width="1254" height="1254" loading="lazy">
+              {%- endif -%}
+            </div>
+            <div>
+              <p class="scc-feat__spec">{{ block.settings.spec }}</p>
+              <h3>{{ block.settings.title }}</h3>
+              <p>{{ block.settings.body }}</p>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "SCC Story + Features",
+  "settings": [
+    { "type": "text", "id": "problem_eyebrow", "label": "Problem eyebrow", "default": "The problem" },
+    { "type": "text", "id": "problem_heading", "label": "Problem heading", "default": "Six months on a tender is six months of contact." },
+    { "type": "textarea", "id": "problem_text", "label": "Problem text", "default": "The charge cable runs from the wall, over your bodywork, down to the battery. It rests on the same square inch of clear coat the entire storage season, and it moves every time the garage does. The towel you drape under it slips. The marks stay." },
+    { "type": "image_picker", "id": "problem_image", "label": "Evidence image (macro of swirl marks)" },
+    { "type": "text", "id": "how_eyebrow", "label": "How eyebrow", "default": "The system" },
+    { "type": "text", "id": "how_heading", "label": "How heading", "default": "Fitted once. Forgotten all season." },
+    { "type": "text", "id": "steps_titles", "label": "Step titles (separate with |)", "default": "Slide|Position|Connect|Forget" },
+    { "type": "textarea", "id": "steps_bodies", "label": "Step bodies (separate with |)", "default": "The sleeve slides over your existing tender cable. No disassembly, no tools.|Cover the run of cable that touches bodywork, sill or guard.|Clip to the battery exactly as you always do.|It stays put under a cover, in airflow, for the whole season." },
+    { "type": "text", "id": "feat_eyebrow", "label": "Features eyebrow", "default": "The details" },
+    { "type": "text", "id": "feat_heading", "label": "Features heading", "default": "Engineered to touch paint. Built to be ignored." }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        { "type": "text", "id": "spec", "label": "Spec line (uppercase)", "default": "Matte woven shell" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Soft against clear coat" },
+        { "type": "textarea", "id": "body", "label": "Body", "default": "A matte woven fabric tube with a flat stitched seam. No gloss, no hooks, no magnets, no hardware anywhere the car can feel." },
+        { "type": "image_picker", "id": "image", "label": "Image" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "SCC Story + Features" }]
+}
+{% endschema %}
