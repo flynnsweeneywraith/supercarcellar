@@ -119,6 +119,13 @@ _(Theme deploy queue fully applied 2026-07-31 — see log below.)_
   templateSuffix set to `super-car-cellar`. Page remains **unpublished**.
   Result: success.
 
+- 2026-07-31 · Owner action · Theme published · "Copy of Horizon"
+  (147638354090) is now MAIN; original Horizon (147636748458) unpublished.
+- 2026-07-31 · **API write** · `pageUpdate` · Page 118139879594
+  `isPublished: true` (owner intended to publish and it was still hidden —
+  they had published the theme, not the page). Storefront remains behind
+  the trial-plan password page. Result: success.
+
 ## Task status
 
 | # | Task | Status |
