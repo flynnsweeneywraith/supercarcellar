@@ -48,4 +48,21 @@ explain steps plainly, avoid jargon, and never assume Shopify admin knowledge.
 > structure, naming conventions, theme name, metafields, markets, apps
 > installed), record it here so future sessions inherit it.
 
-- _Nothing recorded yet — store not connected as of 2026-07-31._
+- Store: "My Store" · `py1b7n-k3.myshopify.com` · **trial plan** (must upgrade
+  before selling) · currency **AUD** · Australia · AEST timezone.
+- Brand: Supercar Cellar (supercarcellar.com, @supercarcellar on IG/TikTok).
+  Dark/premium automotive aesthetic — near-black, brushed silver, deep
+  burgundy. Voice: understated, no exclamation marks, no hype adjectives.
+  Sell paint protection, never "cable management".
+- Product: **Cord Cushion** · `gid://shopify/Product/8586440114346` · DRAFT ·
+  SKU `SCC-CC-001` · AUD 59.95 (provisional — brief modelled USD 40; owner to
+  confirm AUD price) · vendor "Supercar Cellar" · type "Paint Protection" ·
+  inventory tracked, qty 0 · no images yet (owner has real photography; AI
+  mock QR codes must never ship).
+- Full product/market brief lives in the 2026-07-31 chat: unit economics say
+  single-SKU paid DTC doesn't work (contribution AUD ~21/unit vs CAC ~78);
+  viable routes are kits (~USD 139 AOV), wholesale, B2B storage operators,
+  audience attach.
+- MCP notes: `graphql_mutation` blocks writes to the live/MAIN theme (drafts
+  only) — aligns with our safety rules. `productUpdate` takes
+  `product: ProductUpdateInput`. Validate GraphQL before executing.
