@@ -256,6 +256,16 @@ _(Theme deploy queue fully applied 2026-07-31 — see log below.)_
   black on touch). Checksums verified. Owner publishes "Copy of Horizon"
   to ship the fixes.
 
+- 2026-07-31 · Investigation · Rendered the buy section at 360/390/430px in
+  headless Chromium (with Horizon base.css): fixed CSS shows zero overflow;
+  visual render clean. "Didn't work" report was pre-publish — owner then
+  published "Copy of Horizon" (07:53), mobile fixes now LIVE. Roles
+  flipped again: "Horizon" (147636748458) is the draft.
+- 2026-07-31 · File edit + **API write** · `themeFilesUpsert` into
+  "Horizon" (draft) · iOS hardening: overflow-x:hidden fallback for
+  browsers without overflow:clip (iOS <16) + .scc img max-width guard.
+  Checksum verified.
+
 ## Task status
 
 | # | Task | Status |
