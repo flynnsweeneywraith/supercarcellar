@@ -197,6 +197,10 @@ _(Theme deploy queue fully applied 2026-07-31 — see log below.)_
   hero band, 17px in proof band vs 34/30px crests) — it dominated at equal
   height. Checksums verified.
 
+- 2026-07-31 · File edit + **API write** · `fileCreate` (REPLACE) ·
+  `collection-room.jpg` cropped 582x1034 → 582x582 square (matches the
+  other feature images; same CDN URL, same MediaImage ID). Result: success.
+
 ## Task status
 
 | # | Task | Status |
