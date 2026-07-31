@@ -13,11 +13,8 @@
     mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
   .scc-marquee__track{display:flex;width:max-content}
   .scc-marquee__set{display:flex;align-items:center;gap:clamp(40px,5vw,76px);padding:18px clamp(40px,5vw,76px) 18px 0}
-  .scc-marquee__set img{display:block;height:30px;width:auto;filter:brightness(0) invert(.86);opacity:.6}
+  .scc-marquee__set img{display:block;height:30px;width:auto;opacity:.85}
   .scc-marquee__set img[src*="mclaren"]{height:17px}
-  .scc-marquee__set img[src*="porsche"],
-  .scc-marquee__set img[src*="ferrari"],
-  .scc-marquee__set img[src*="lamborghini"]{filter:grayscale(1) brightness(1.25);opacity:.88}
 
   .scc-reviews{border-block:1px solid var(--scc-line,rgba(230,231,234,.08));background:var(--scc-panel,#111114);padding-block:var(--scc-gap,96px)}
   .scc-reviews__grid{display:grid;gap:22px;margin-top:48px}
@@ -67,15 +64,15 @@
     </div>
     {%- capture proof_marques -%}
       {%- assign cdn = 'https://cdn.shopify.com/s/files/1/0720/0296/1578/files/' -%}
-      <img src="{{ cdn }}marque-porsche.png" alt="Porsche" loading="lazy" height="30">
-      <img src="{{ cdn }}marque-ferrari.svg" alt="Ferrari" loading="lazy" height="30">
-      <img src="{{ cdn }}marque-lamborghini.svg" alt="Lamborghini" loading="lazy" height="30">
-      <img src="{{ cdn }}marque-mclaren.svg" alt="McLaren" loading="lazy" height="30">
-      <img src="{{ cdn }}marque-aston-martin.svg" alt="Aston Martin" loading="lazy" height="30">
-      <img src="{{ cdn }}marque-bentley.svg" alt="Bentley" loading="lazy" height="30">
-      <img src="{{ cdn }}marque-rolls-royce.svg" alt="Rolls-Royce" loading="lazy" height="30">
-      <img src="{{ cdn }}marque-alfa-romeo.svg" alt="Alfa Romeo" loading="lazy" height="30">
-      <img src="{{ cdn }}marque-chevrolet.svg" alt="Chevrolet" loading="lazy" height="30">
+      <img src="{{ cdn }}marque-porsche-strip.png" alt="Porsche" loading="lazy" height="30">
+      <img src="{{ cdn }}marque-ferrari-strip.png" alt="Ferrari" loading="lazy" height="30">
+      <img src="{{ cdn }}marque-lamborghini-strip.png" alt="Lamborghini" loading="lazy" height="30">
+      <img src="{{ cdn }}marque-mclaren-strip.png" alt="McLaren" loading="lazy" height="30">
+      <img src="{{ cdn }}marque-aston-martin-strip.png" alt="Aston Martin" loading="lazy" height="30">
+      <img src="{{ cdn }}marque-bentley-strip.png" alt="Bentley" loading="lazy" height="30">
+      <img src="{{ cdn }}marque-rolls-royce-strip.png" alt="Rolls-Royce" loading="lazy" height="30">
+      <img src="{{ cdn }}marque-alfa-romeo-strip.png" alt="Alfa Romeo" loading="lazy" height="30">
+      <img src="{{ cdn }}marque-chevrolet-strip.png" alt="Chevrolet" loading="lazy" height="30">
     {%- endcapture -%}
     <div class="scc-marquee scc-reveal" aria-hidden="true">
       <div class="scc-marquee__track">

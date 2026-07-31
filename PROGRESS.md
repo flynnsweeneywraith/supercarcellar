@@ -208,6 +208,15 @@ _(Theme deploy queue fully applied 2026-07-31 — see log below.)_
   kept as brightened grayscale to preserve internal detail. Checksums
   verified.
 
+- 2026-07-31 · File edits + **API write** · `themeFilesUpsert` ×2 +
+  `fileCreate` ×9 · Hero trust row ("Ships from Australia / Fits common
+  battery tenders / Secure checkout") removed. Logos re-done properly:
+  CSS-filter approach (blobbed Rolls-Royce, muddy Porsche) replaced with
+  pre-rendered silver PNGs (`marque-*-strip.png`, sharp pipeline:
+  grayscale, auto-invert dark marks, silver lift; visually verified via
+  contact sheet). Both marquees now use the PNGs with no CSS filters.
+  Checksums verified.
+
 ## Task status
 
 | # | Task | Status |
