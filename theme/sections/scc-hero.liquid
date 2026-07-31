@@ -73,13 +73,16 @@
     filter:drop-shadow(0 40px 80px rgba(0,0,0,.55))}
   @media(min-width:900px){.scc-hero__grid{grid-template-columns:1.05fr .95fr;gap:clamp(48px,5vw,88px)}}
 
-  .scc-marques{position:relative;background:#dfe0e4;border-block:1px solid rgba(10,10,12,.35);overflow:hidden;
+  .scc-marques{position:relative;background:var(--scc-panel,#111114);border-block:1px solid var(--scc-line,rgba(230,231,234,.08));overflow:hidden;
     -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
     mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
   .scc-marques__track{display:flex;width:max-content;padding-block:22px}
   .scc-marques__set{display:flex;align-items:center;gap:clamp(44px,6vw,88px);padding-right:clamp(44px,6vw,88px)}
-  .scc-marques__set img{display:block;height:34px;width:auto;filter:grayscale(1);opacity:.82}
+  .scc-marques__set img{display:block;height:34px;width:auto;filter:brightness(0) invert(.86);opacity:.6}
   .scc-marques__set img[src*="mclaren"]{height:19px}
+  .scc-marques__set img[src*="porsche"],
+  .scc-marques__set img[src*="ferrari"],
+  .scc-marques__set img[src*="lamborghini"]{filter:grayscale(1) brightness(1.25);opacity:.88}
   @media (prefers-reduced-motion:no-preference){
     .scc-marques__track{animation:scc-marquee 42s linear infinite}
     .scc-marques:hover .scc-marques__track{animation-play-state:paused}

@@ -201,6 +201,13 @@ _(Theme deploy queue fully applied 2026-07-31 — see log below.)_
   `collection-room.jpg` cropped 582x1034 → 582x582 square (matches the
   other feature images; same CDN URL, same MediaImage ID). Result: success.
 
+- 2026-07-31 · File edit + **API write** · `themeFilesUpsert` ×2 into
+  "Horizon" · Logo bands recolored: light silver strip → dark charcoal
+  (panel tone, hairline borders). Wordmark logos rendered as silver
+  silhouettes (brightness(0) invert); Porsche/Ferrari/Lamborghini crests
+  kept as brightened grayscale to preserve internal detail. Checksums
+  verified.
+
 ## Task status
 
 | # | Task | Status |
