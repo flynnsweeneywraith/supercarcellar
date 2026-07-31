@@ -50,6 +50,30 @@ Format: `date · action · target/IDs · result`
   `global.title_tag` + `global.description_tag` on the listicle page
   (metafields 56720400023722, 56720400056490). Result: success.
 
+- 2026-07-31 · Decision (owner) · pricing · Single = AUD 29.99; pair deal =
+  50% off the second unit → Twin Pack = AUD 44.99. Margin warning given and
+  acknowledged (thin contribution at this price per brief cost model).
+- 2026-07-31 · File edit · `pages/tender-cable-paint-listicle.html` · Offer
+  cards updated to AUD $29.99 / $44.99, copy now says "second at half
+  price". Store page NOT yet updated (connector offline).
+- 2026-07-31 · Note · Shopify connector disconnected mid-session; owner
+  supplied product images via chat (not uploadable from here; AI packaging
+  mock has a fake QR code — composite real artwork before publishing).
+
+## Pending queue — apply when Shopify connector returns
+
+1. `productUpdate` / variant update: Cord Cushion single price 59.95 → 29.99.
+2. Variant update + `productUpdate` (descriptionHtml): Twin Pack price
+   95.90 → 44.99; description currently claims "20% off" and "AUD 119.90 /
+   95.90" — rewrite to "second sleeve at half price", AUD 59.98 / 44.99.
+3. Discounts: BUNDLE20 (basic 20% code) no longer matches the offer.
+   Replace with a Buy X Get Y code (buy 1 Cord Cushion single, get the 2nd
+   at 50% off), future-dated like before; deactivate/delete BUNDLE20.
+4. `pageUpdate`: push updated listicle HTML (new prices) to page
+   `gid://shopify/Page/118139879594`.
+5. Product images: if owner commits files to repo `assets/`, upload via
+   staged uploads + productCreateMedia; otherwise owner drags into admin.
+
 ## Task status
 
 | # | Task | Status |
