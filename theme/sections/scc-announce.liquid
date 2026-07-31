@@ -17,7 +17,7 @@
     letter-spacing:.16em;text-transform:uppercase}
   @media (prefers-reduced-motion:no-preference){
     @keyframes scc-announce-move{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-    .scc-announce__track{animation:scc-announce-move {{ section.settings.speed | default: 26 }}s linear infinite}
+    .scc-announce__track{animation:scc-announce-move {{ section.settings.speed | default: 42 }}s linear infinite}
     .scc-announce:hover .scc-announce__track{animation-play-state:paused}
   }
   @media (prefers-reduced-motion:reduce){
@@ -44,7 +44,7 @@
   "settings": [
     { "type": "text", "id": "text", "label": "Ticker text", "default": "Buy two — get the second sleeve 50% off" },
     { "type": "url", "id": "link", "label": "Link" },
-    { "type": "range", "id": "speed", "label": "Scroll duration (seconds)", "min": 10, "max": 60, "step": 2, "default": 26 }
+    { "type": "range", "id": "speed", "label": "Scroll duration (seconds)", "min": 10, "max": 60, "step": 2, "default": 42 }
   ],
   "enabled_on": { "groups": ["header"] },
   "presets": [{ "name": "SCC Announcement Ticker" }]

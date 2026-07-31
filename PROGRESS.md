@@ -232,6 +232,10 @@ _(Theme deploy queue fully applied 2026-07-31 — see log below.)_
   store" announcement bar with the ticker, above the header. Content
   verified in theme.
 
+- 2026-07-31 · File edit + **API write** · `themeFilesUpsert` ×2 ·
+  Announcement ticker slowed: 26s → 42s per loop (section default + header
+  group setting).
+
 ## Task status
 
 | # | Task | Status |
