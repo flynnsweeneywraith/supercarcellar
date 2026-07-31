@@ -68,23 +68,14 @@ Format: `date · action · target/IDs · result`
 
 ## Pending queue
 
-1. Owner: duplicate the Horizon theme in admin (Online Store → Themes → ⋯ →
-   Duplicate). API cannot duplicate a theme and cannot write to the live one.
-2. When Shopify connector is back: upload to Shopify Files with EXACTLY
-   these filenames (theme fallbacks reference `.../files/<name>`):
-   `supercar-cellar-logo.png`, `cellar-dark.jpg`, `showroom-red.jpg`,
-   `garage-porsche-trio.jpg`, `collection-room.jpg`,
-   `problem-cable-on-paint.png`, `solution-sleeve-fitted.png`.
-   Then `themeFilesUpsert`
-   the 5 files in `theme/` into the duplicate, then `pageUpdate`
-   templateSuffix `super-car-cellar` on page 118139879594.
-   (2026-07-31: owner's 4 garage images placed: cellar-dark → hero bg 13%,
-   showroom-red → problem img + final bg, garage-porsche-trio → full-bleed
-   break, collection-room → feature 3 + fit bg. Animation pass added:
-   line-reveal headline, floating pack shot, Ken Burns backgrounds, count-up
-   stat, step line draws, directional feature reveals, marque marquee,
-   card hover lift, button sheen. All gated by prefers-reduced-motion.)
-3. Owner previews in theme editor; publishing the theme is owner's click.
+1. Owner: preview the page in the theme editor (Online Store → Themes →
+   "Copy of Horizon" → Customize → Pages → the listicle page). Publishing
+   the theme and the page is the owner's click, never Claude's.
+2. Before anything goes live: composite real QR artwork into
+   `packaging-hero.png` (current QR is an AI mock), and replace the two
+   [PLACEHOLDER] policy texts (duties, returns) in the proof section.
+
+_(Theme deploy queue fully applied 2026-07-31 — see log below.)_
 
 - 2026-07-31 · **API write** · `update-product` ×2 · Single variant price
   59.95 → **29.99**; Twin Pack variant price 95.90 → **44.99** +
@@ -106,12 +97,34 @@ Format: `date · action · target/IDs · result`
   updated: both photography slots replaced with Shopify CDN images (alt text
   set). Page remains **unpublished**. Result: success.
 
+- 2026-07-31 · API read · `themes` query · Owner has duplicated the theme:
+  "Copy of Horizon" · `gid://shopify/OnlineStoreTheme/147638354090` ·
+  UNPUBLISHED. Live theme untouched throughout.
+- 2026-07-31 · **API write** · `stagedUploadsCreate` + curl (7×201) +
+  `fileCreate` ×7 · Uploaded to Shopify Files with exact fallback filenames:
+  `supercar-cellar-logo.png`, `cellar-dark.jpg`, `showroom-red.jpg`,
+  `garage-porsche-trio.jpg`, `collection-room.jpg`,
+  `problem-cable-on-paint.png`, `solution-sleeve-fitted.png` (MediaImage
+  36734931828906–36734932025514, alt text set, all READY, no UUID
+  suffixes). Result: success.
+- 2026-07-31 · File edit · `theme/sections/scc-hero.liquid` · Removed
+  `"default": ""` from the stat block's `unit` setting — Shopify rejects
+  empty-string schema defaults (FILE_VALIDATION_ERROR).
+- 2026-07-31 · **API write** · `themeFilesUpsert` ×4 · All 5 theme files
+  into "Copy of Horizon" (drafts-only guard respected): scc-hero / scc-story
+  / scc-buy / scc-proof .liquid + `templates/page.super-car-cellar.json`.
+  Liquid checksums verified against local md5; template re-serialized by
+  Shopify but content verified intact. Result: success.
+- 2026-07-31 · **API write** · `pageUpdate` · Page 118139879594
+  templateSuffix set to `super-car-cellar`. Page remains **unpublished**.
+  Result: success.
+
 ## Task status
 
 | # | Task | Status |
 |---|------|--------|
 | 1 | Launch new product | **Draft created — awaiting owner review** (price, images, stock qty) |
 | 2 | Bundle + 20% discount | **Done as drafts** — Twin Pack (draft) + BUNDLE20 (starts 2026-09-01, owner can pull forward) |
-| 3 | Listicle landing page | **Created, unpublished** — needs real photography in 2 marked slots, then publish |
+| 3 | Listicle landing page | **Deployed to draft theme, unpublished** — native template + sections live in "Copy of Horizon"; owner to preview, then publish theme + page |
 | 4 | Sales data analysis | **No data** — 0 orders (pre-launch). Re-run after first sales; queries documented |
 | 5 | SEO audit + fixes | **API-level fixes done** (product + page SEO). Manual admin items listed in audit report |

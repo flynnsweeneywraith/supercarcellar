@@ -89,6 +89,26 @@ explain steps plainly, avoid jargon, and never assume Shopify admin knowledge.
   `product: ProductUpdateInput`. Page SEO is set via `metafieldsSet` with
   namespace `global`, keys `title_tag` / `description_tag` (PageCreateInput
   has no seo field). Validate GraphQL before executing.
+- Theme: live = "Horizon" (`gid://shopify/OnlineStoreTheme/147636748458`,
+  MAIN — never touch). Draft = **"Copy of Horizon"**
+  (`gid://shopify/OnlineStoreTheme/147638354090`, UNPUBLISHED) — holds the
+  deployed landing page: 4 `scc-*` sections + `templates/page.super-car-cellar.json`
+  (deployed 2026-07-31, checksums verified). Page 118139879594 has
+  templateSuffix `super-car-cellar`; its old HTML body is still stored but a
+  page template's sections render instead of the body in Horizon. Publishing
+  theme/page = owner's click.
+- `themeFilesUpsert` quirks: with `body.type: URL` validation errors are
+  SILENT (empty upsertedThemeFiles, no userErrors — always verify with a
+  theme files query + checksumMd5); inline BASE64/TEXT surfaces the real
+  errors. Schema `"default": ""` is rejected (default can't be blank).
+  Upload order matters: sections before any template that references them.
+  Staged text uploads work with `resource: FILE, mimeType: text/plain`.
+- Shopify Files with exact names now exist for all theme fallback URLs:
+  supercar-cellar-logo.png, cellar-dark.jpg, showroom-red.jpg,
+  garage-porsche-trio.jpg, collection-room.jpg, problem-cable-on-paint.png,
+  solution-sleeve-fitted.png (+ earlier sleeve-coiled.png,
+  packaging-hero.png). `fileCreate` accepts `filename` +
+  `duplicateResolutionMode: RAISE_ERROR` to guarantee no UUID suffix.
 - SEO facts: shop name is placeholder "My Store" and shop description is null
   (both fixable only in admin UI, not API). No custom domain connected yet
   (supercarcellar.com pending). Products have no images yet, so no alt text.
