@@ -70,9 +70,14 @@ Format: `date · action · target/IDs · result`
 
 1. Owner: duplicate the Horizon theme in admin (Online Store → Themes → ⋯ →
    Duplicate). API cannot duplicate a theme and cannot write to the live one.
-2. When Shopify connector is back: `themeFilesUpsert` the 5 files in
-   `theme/` into the duplicate, then `pageUpdate` templateSuffix
+2. When Shopify connector is back: upload `assets/supercar-cellar-logo.png`
+   to Shopify Files with exactly that filename (theme sections reference
+   `.../files/supercar-cellar-logo.png` as fallback), `themeFilesUpsert` the
+   5 files in `theme/` into the duplicate, then `pageUpdate` templateSuffix
    `super-car-cellar` on page 118139879594.
+2b. Owner uploading more photography to `assets/` (garage scene, problem
+   macro, fitted close-up). Claude curates: best wide shot → full-bleed
+   break; macro → problem slot; fitted shot → feature row. Skip filler.
 3. Owner previews in theme editor; publishing the theme is owner's click.
 
 - 2026-07-31 · **API write** · `update-product` ×2 · Single variant price

@@ -39,6 +39,7 @@
   .scc-final{border-top:1px solid var(--scc-line,rgba(230,231,234,.08));background:
     radial-gradient(80% 120% at 50% 120%,rgba(142,31,44,.22),transparent 60%),var(--scc-panel,#111114);
     padding-block:clamp(72px,10vw,140px);text-align:center}
+  .scc-final__logo{display:block;height:clamp(64px,7vw,84px);width:auto;margin:0 auto 30px}
   .scc-final h2{font-size:clamp(32px,4.6vw,64px);font-weight:800;letter-spacing:-.02em;line-height:1.02;
     text-wrap:balance;max-width:20ch;margin:0 auto 18px}
   .scc-final p{color:var(--scc-mut,#9ea0a8);margin-bottom:36px}
@@ -110,6 +111,12 @@
 
   <section class="scc-final">
     <div class="scc-wrap">
+      {%- if section.settings.logo != blank -%}
+        {{ section.settings.logo | image_url: width: 300 | image_tag: class: 'scc-final__logo scc-reveal', alt: 'Supercar Cellar', loading: 'lazy' }}
+      {%- else -%}
+        <img class="scc-final__logo scc-reveal" src="https://cdn.shopify.com/s/files/1/0720/0296/1578/files/supercar-cellar-logo.png"
+          alt="Supercar Cellar" width="637" height="546" loading="lazy">
+      {%- endif -%}
       <h2 class="scc-reveal">{{ section.settings.final_heading }}</h2>
       <p class="scc-reveal">{{ section.settings.final_sub }}</p>
       <a class="scc-btn scc-reveal" href="#scc-buy">{{ section.settings.final_cta }}</a>
@@ -159,6 +166,7 @@
     { "type": "textarea", "id": "ship_3_body", "label": "Cell 3 body", "default": "[PLACEHOLDER · confirm returns window and conditions before launch]" },
     { "type": "text", "id": "faq_eyebrow", "label": "FAQ eyebrow", "default": "Sensible questions" },
     { "type": "text", "id": "faq_heading", "label": "FAQ heading", "default": "Before you ask." },
+    { "type": "image_picker", "id": "logo", "label": "Brand logo (final band)" },
     { "type": "text", "id": "final_heading", "label": "Final heading", "default": "Put something soft between the cable and the clear coat." },
     { "type": "text", "id": "final_sub", "label": "Final subtext", "default": "Fitted in under a minute. Ignored for the rest of the season." },
     { "type": "text", "id": "final_cta", "label": "Final CTA", "default": "Buy Cord Cushion" },

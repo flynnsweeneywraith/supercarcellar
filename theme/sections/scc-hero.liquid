@@ -34,6 +34,7 @@
   .scc-hero::before{content:"";position:absolute;inset:0;pointer-events:none;
     background:radial-gradient(90% 70% at 78% 30%,rgba(142,31,44,.14),transparent 60%)}
   .scc-hero__grid{display:grid;gap:48px;align-items:center;position:relative}
+  .scc-hero__logo{display:block;height:clamp(64px,7vw,88px);width:auto;margin-bottom:26px}
   .scc-hero__h1{font-size:clamp(40px,6.2vw,88px);line-height:.98;font-weight:800;letter-spacing:-.025em;
     font-stretch:112%;text-wrap:balance;margin:22px 0 24px}
   .scc-hero__h1 em{font-style:normal;color:var(--scc-acc-hi)}
@@ -65,6 +66,12 @@
     <div class="scc-wrap">
       <div class="scc-hero__grid">
         <div>
+          {%- if section.settings.logo != blank -%}
+            {{ section.settings.logo | image_url: width: 400 | image_tag: class: 'scc-hero__logo scc-reveal', alt: 'Supercar Cellar', loading: 'eager' }}
+          {%- else -%}
+            <img class="scc-hero__logo scc-reveal" src="https://cdn.shopify.com/s/files/1/0720/0296/1578/files/supercar-cellar-logo.png"
+              alt="Supercar Cellar" width="637" height="546" loading="eager">
+          {%- endif -%}
           <p class="scc-label scc-reveal">{{ section.settings.eyebrow }}</p>
           <h1 class="scc-hero__h1 scc-reveal" style="transition-delay:.06s">
             {{ section.settings.heading_1 }} <em>{{ section.settings.heading_2 }}</em>
@@ -124,7 +131,8 @@
 {
   "name": "SCC Hero + Stats",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Supercar Cellar · Paint Protection" },
+    { "type": "image_picker", "id": "logo", "label": "Brand logo" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Paint Protection" },
     { "type": "text", "id": "heading_1", "label": "Headline (silver part)", "default": "The tender keeps the battery." },
     { "type": "text", "id": "heading_2", "label": "Headline (accent part)", "default": "This keeps the paint." },
     { "type": "textarea", "id": "subtext", "label": "Subtext", "default": "A matte woven sleeve for your battery maintainer's cable, so months of storage leave no trace on your clear coat." },
