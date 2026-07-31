@@ -63,6 +63,23 @@ explain steps plainly, avoid jargon, and never assume Shopify admin knowledge.
   single-SKU paid DTC doesn't work (contribution AUD ~21/unit vs CAC ~78);
   viable routes are kits (~USD 139 AOV), wholesale, B2B storage operators,
   audience attach.
+- Product: **Cord Cushion — Twin Pack** · `gid://shopify/Product/8586440868010`
+  · DRAFT · SKU `SCC-CC-002` · AUD 95.90 · handle `cord-cushion-twin-pack`.
+- Collection: **Cord Cushion Singles** · `gid://shopify/Collection/362710827178`
+  · manual, single product only · exists as BUNDLE20 scope so the code cannot
+  stack with Twin Pack pricing. Do not add the Twin Pack to it.
+- Discount: **BUNDLE20** · `gid://shopify/DiscountCodeNode/1555142213802` ·
+  20% off min qty 2, scoped to Cord Cushion Singles · starts 2026-09-01 AEST.
+- Page: listicle landing page · `gid://shopify/Page/118139879594` · handle
+  `tender-cable-paint-protection` · unpublished · source of truth is
+  `pages/tender-cable-paint-listicle.html` in this repo (edit file, then
+  pageUpdate). Two image slots marked TODO await real photography.
+- Other pages: "Contact" (`gid://shopify/Page/118139453610`, published).
 - MCP notes: `graphql_mutation` blocks writes to the live/MAIN theme (drafts
   only) — aligns with our safety rules. `productUpdate` takes
-  `product: ProductUpdateInput`. Validate GraphQL before executing.
+  `product: ProductUpdateInput`. Page SEO is set via `metafieldsSet` with
+  namespace `global`, keys `title_tag` / `description_tag` (PageCreateInput
+  has no seo field). Validate GraphQL before executing.
+- SEO facts: shop name is placeholder "My Store" and shop description is null
+  (both fixable only in admin UI, not API). No custom domain connected yet
+  (supercarcellar.com pending). Products have no images yet, so no alt text.

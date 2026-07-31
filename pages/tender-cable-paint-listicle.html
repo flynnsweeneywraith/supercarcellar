@@ -1,0 +1,149 @@
+<div class="scc-page">
+<style>
+  .scc-page{--bg:#0b0b0d;--panel:#131316;--line:rgba(255,255,255,.09);--txt:#e8e8ec;--mut:#a2a2ab;--acc:#93202f;--acc-h:#7c1b28;
+    background:var(--bg);color:var(--txt);font-family:"Helvetica Neue",Arial,"Segoe UI",system-ui,sans-serif;
+    font-size:16px;line-height:1.65;padding:clamp(28px,5vw,72px) clamp(20px,6vw,88px);border-radius:4px}
+  .scc-page *{box-sizing:border-box;margin:0}
+  .scc-eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut)}
+  .scc-h1{font-size:clamp(30px,4.6vw,54px);line-height:1.06;letter-spacing:-.02em;font-weight:700;margin:18px 0 20px;max-width:17ch}
+  .scc-h2{font-size:clamp(22px,3vw,32px);line-height:1.15;letter-spacing:-.015em;font-weight:700;margin-bottom:16px}
+  .scc-sub{color:var(--mut);max-width:44ch;margin-bottom:28px}
+  .scc-btn{display:inline-block;background:var(--acc);color:#fff;text-decoration:none;font-weight:600;font-size:15px;
+    padding:14px 28px;border-radius:4px;transition:background .2s ease,transform .15s ease}
+  .scc-btn:hover{background:var(--acc-h)}
+  .scc-btn:active{transform:translateY(1px)}
+  .scc-link{color:var(--txt);text-decoration:underline;text-underline-offset:4px;font-weight:600;font-size:15px}
+  .scc-hero{display:grid;gap:40px;align-items:center;margin-bottom:clamp(56px,9vw,110px)}
+  .scc-imgslot{background:var(--panel);border:1px solid var(--line);border-radius:4px;aspect-ratio:4/3;
+    display:flex;align-items:center;justify-content:center;text-align:center;padding:24px}
+  .scc-imgslot span{color:#5c5c64;font-size:13px;max-width:30ch}
+  .scc-reason{display:grid;grid-template-columns:auto 1fr;gap:20px 28px;padding:34px 0;border-top:1px solid var(--line)}
+  .scc-num{font-size:clamp(34px,4vw,48px);font-weight:700;line-height:1;color:var(--acc);min-width:1.4em}
+  .scc-reason h3{font-size:20px;font-weight:700;margin-bottom:8px;letter-spacing:-.01em}
+  .scc-reason p{color:var(--mut);max-width:60ch}
+  .scc-band{background:var(--panel);border:1px solid var(--line);border-radius:4px;
+    padding:clamp(28px,4vw,52px);margin:clamp(56px,9vw,110px) 0}
+  .scc-offer{display:grid;gap:20px;margin-top:28px}
+  .scc-card{border:1px solid var(--line);border-radius:4px;padding:28px}
+  .scc-card.scc-feature{border-color:rgba(147,32,47,.5)}
+  .scc-price{font-size:26px;font-weight:700;margin:6px 0 4px}
+  .scc-card p{color:var(--mut);font-size:15px}
+  .scc-faq details{border-top:1px solid var(--line);padding:18px 0}
+  .scc-faq summary{cursor:pointer;font-weight:600;font-size:17px;list-style:none}
+  .scc-faq summary::-webkit-details-marker{display:none}
+  .scc-faq p{color:var(--mut);margin-top:10px;max-width:60ch}
+  .scc-final{text-align:left;padding-top:clamp(40px,6vw,72px);border-top:1px solid var(--line)}
+  .scc-fine{color:#5c5c64;font-size:13px;margin-top:18px}
+  @media(min-width:768px){
+    .scc-hero{grid-template-columns:1.1fr .9fr}
+    .scc-offer{grid-template-columns:1fr 1fr}
+  }
+</style>
+
+<!-- HERO -->
+<section class="scc-hero">
+  <div>
+    <p class="scc-eyebrow">Supercar Cellar</p>
+    <h1 class="scc-h1">Five reasons the tender cable should never touch your paint</h1>
+    <p class="scc-sub">A maintainer keeps the battery alive. It also leaves a cable resting on your clear coat for months at a time.</p>
+    <a class="scc-btn" href="/products/cord-cushion">Get Cord Cushion</a>
+  </div>
+  <!-- TODO: replace slot with real packaging hero shot (dark background floating bag), 1600x1200 -->
+  <figure class="scc-imgslot"><span>Photography slot: packaging hero shot, dark background</span></figure>
+</section>
+
+<!-- THE FIVE REASONS -->
+<section>
+  <h2 class="scc-h2">The case, in five parts</h2>
+
+  <div class="scc-reason">
+    <div class="scc-num">1</div>
+    <div>
+      <h3>The cable rests where you would never rest a tool</h3>
+      <p>Nobody lays a spanner on a front guard. Yet a stored car spends whole seasons with a charger cable draped over the same edge of bodywork, pressing on the same square inch of clear coat the entire time.</p>
+    </div>
+  </div>
+
+  <div class="scc-reason">
+    <div class="scc-num">2</div>
+    <div>
+      <h3>Micro-movement does the damage</h3>
+      <p>The cable does not sit still. Airflow from the garage door, footsteps on a timber floor, the small shift every time you check the charge. Each movement drags an unpadded cable across paint, and swirl marks are the receipt.</p>
+    </div>
+  </div>
+
+  <div class="scc-reason">
+    <div class="scc-num">3</div>
+    <div>
+      <h3>The towel fix fails at exactly the wrong time</h3>
+      <p>Search any Corvette, Porsche or Ferrari forum and the thread ends the same way: someone drapes a microfibre towel under the cable and hopes. Towels slip. They slip most when the cable is moved, which is precisely when protection matters.</p>
+    </div>
+  </div>
+
+  <div class="scc-reason">
+    <div class="scc-num">4</div>
+    <div>
+      <h3>Correction costs more than prevention</h3>
+      <p>A single stage of paint correction on a modern clear coat is a specialist, per-panel expense. A sleeve that stops the marks from forming costs less than the detailer's call-out fee.</p>
+    </div>
+  </div>
+
+  <div class="scc-reason">
+    <div class="scc-num">5</div>
+    <div>
+      <h3>The fix takes less time than folding the towel</h3>
+      <p>Cord Cushion slides over the cable of any common battery tender and stays put for the whole storage season. Fit it once in the time it takes to fold a towel properly, then stop thinking about it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- THE PRODUCT -->
+<section class="scc-band">
+  <h2 class="scc-h2">What it is</h2>
+  <p class="scc-sub">A matte black woven sleeve for the cable itself. Soft against paint, no gloss, no hardware where it touches the car.</p>
+  <!-- TODO: replace slot with real coiled-sleeve product shot (dark background, branded tab visible), 1600x900 -->
+  <figure class="scc-imgslot" style="aspect-ratio:16/9"><span>Photography slot: coiled sleeve with branded tab, dark background</span></figure>
+</section>
+
+<!-- OFFER -->
+<section>
+  <h2 class="scc-h2">One car or two</h2>
+  <div class="scc-offer">
+    <div class="scc-card">
+      <p class="scc-eyebrow">Single</p>
+      <p class="scc-price">AUD $59.95</p>
+      <p>One sleeve. One cable. One car that comes out of storage the way it went in.</p>
+    </div>
+    <div class="scc-card scc-feature">
+      <p class="scc-eyebrow">Twin Pack</p>
+      <p class="scc-price">AUD $95.90</p>
+      <p>Two sleeves at 20% off single pricing, because very few collections stop at one car. <a class="scc-link" href="/products/cord-cushion-twin-pack">See the Twin Pack</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="scc-band scc-faq">
+  <h2 class="scc-h2">Sensible questions</h2>
+  <details>
+    <summary>Will it fit my charger's cable?</summary>
+    <p>It slides over the cable of common battery tenders and trickle chargers. If your charger uses an unusually thick cable, contact us before ordering and we will confirm fit.</p>
+  </details>
+  <details>
+    <summary>Does it work under a car cover?</summary>
+    <p>Yes. The sleeve sits flat on the bodywork, so an indoor cover drapes over it without bunching or pulling the cable.</p>
+  </details>
+  <details>
+    <summary>How long does fitting take?</summary>
+    <p>Seconds. Slide the sleeve along the run of cable that touches the car, position it, done. It stays in place for the whole storage season.</p>
+  </details>
+</section>
+
+<!-- FINAL CTA -->
+<section class="scc-final">
+  <h2 class="scc-h2">Six months on a tender is six months of contact</h2>
+  <p class="scc-sub">Put something soft between the cable and the clear coat.</p>
+  <a class="scc-btn" href="/products/cord-cushion">Get Cord Cushion</a>
+  <p class="scc-fine">Ships from Australia. Pricing in AUD.</p>
+</section>
+</div>
