@@ -89,14 +89,15 @@ explain steps plainly, avoid jargon, and never assume Shopify admin knowledge.
   `product: ProductUpdateInput`. Page SEO is set via `metafieldsSet` with
   namespace `global`, keys `title_tag` / `description_tag` (PageCreateInput
   has no seo field). Validate GraphQL before executing.
-- Theme: live = "Horizon" (`gid://shopify/OnlineStoreTheme/147636748458`,
-  MAIN — never touch). Draft = **"Copy of Horizon"**
-  (`gid://shopify/OnlineStoreTheme/147638354090`, UNPUBLISHED) — holds the
-  deployed landing page: 4 `scc-*` sections + `templates/page.super-car-cellar.json`
-  (deployed 2026-07-31, checksums verified). Page 118139879594 has
-  templateSuffix `super-car-cellar`; its old HTML body is still stored but a
-  page template's sections render instead of the body in Horizon. Publishing
-  theme/page = owner's click.
+- Theme: live (MAIN) = **"Copy of Horizon"**
+  (`gid://shopify/OnlineStoreTheme/147638354090`) — owner published it
+  2026-07-31; holds the landing page: 4 `scc-*` sections +
+  `templates/page.super-car-cellar.json` (checksums verified). The MAIN
+  theme is now write-blocked by the MCP guard — future theme edits need a
+  fresh duplicate. Original "Horizon" (`147636748458`) is UNPUBLISHED.
+  Page 118139879594: templateSuffix `super-car-cellar`, **published
+  2026-07-31** (owner intent); old HTML body still stored but the template's
+  sections render instead. Storefront still behind trial-plan password.
 - `themeFilesUpsert` quirks: with `body.type: URL` validation errors are
   SILENT (empty upsertedThemeFiles, no userErrors — always verify with a
   theme files query + checksumMd5); inline BASE64/TEXT surfaces the real
