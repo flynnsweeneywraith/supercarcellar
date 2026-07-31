@@ -192,6 +192,11 @@ _(Theme deploy queue fully applied 2026-07-31 — see log below.)_
   per-sleeve, ticks, pack thumbnail), CTA shows live price. Gallery leads
   with packaging shot.
 
+- 2026-07-31 · File edit + **API write** · `themeFilesUpsert` ×2 into
+  "Horizon" · McLaren wordmark scaled down in both logo marquees (19px in
+  hero band, 17px in proof band vs 34/30px crests) — it dominated at equal
+  height. Checksums verified.
+
 ## Task status
 
 | # | Task | Status |
