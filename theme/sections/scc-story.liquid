@@ -14,13 +14,6 @@
   .scc-story__img img{display:block;width:100%;height:auto}
   @media(min-width:900px){.scc-story__problem-grid{grid-template-columns:1.05fr .95fr;gap:72px}}
 
-  .scc-break{position:relative;height:clamp(420px,60vh,640px);overflow:hidden;border-block:1px solid var(--scc-line,rgba(230,231,234,.08))}
-  .scc-break img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 62%}
-  .scc-break::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,12,.72) 0%,rgba(10,10,12,.18) 45%,rgba(10,10,12,.82) 100%)}
-  .scc-break__copy{position:absolute;left:0;right:0;bottom:clamp(36px,6vw,72px);z-index:2;text-align:center;padding-inline:20px}
-  .scc-break__copy h2{font-size:clamp(26px,3.6vw,48px);font-weight:800;letter-spacing:-.02em;line-height:1.05;text-wrap:balance}
-  .scc-break__copy p{color:#c9cad1;margin-top:12px;font-size:clamp(14px,1.2vw,17px)}
-
   .scc-how{border-block:1px solid var(--scc-line,rgba(230,231,234,.08));background:var(--scc-panel,#111114);
     padding-block:var(--scc-gap,96px)}
   .scc-how__grid{display:grid;gap:48px;margin-top:56px}
@@ -65,18 +58,6 @@
           {%- endif -%}
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="scc-break scc-kb">
-    {%- if section.settings.break_image != blank -%}
-      {{ section.settings.break_image | image_url: width: 2400 | image_tag: alt: section.settings.break_image.alt | default: 'Collector cars in storage', loading: 'lazy' }}
-    {%- else -%}
-      <img src="https://cdn.shopify.com/s/files/1/0720/0296/1578/files/garage-porsche-trio.jpg" alt="Three collector Porsches stored under panel lighting" loading="lazy">
-    {%- endif -%}
-    <div class="scc-break__copy scc-reveal">
-      <h2>{{ section.settings.break_heading }}</h2>
-      <p>{{ section.settings.break_sub }}</p>
     </div>
   </section>
 
@@ -143,9 +124,6 @@
     { "type": "text", "id": "problem_heading", "label": "Problem heading", "default": "Swirl marks you never washed in." },
     { "type": "textarea", "id": "problem_text", "label": "Problem text", "default": "Wash mitts and drying towels get blamed for swirl marks. On a stored car, the culprit is often the tender cable, resting on the same patch of clear coat for months and moving a little every day. No wash technique fixes what the cable keeps redoing." },
     { "type": "image_picker", "id": "problem_image", "label": "Problem image" },
-    { "type": "image_picker", "id": "break_image", "label": "Full-bleed break image" },
-    { "type": "text", "id": "break_heading", "label": "Break heading", "default": "Covered. Connected. Untouched." },
-    { "type": "text", "id": "break_sub", "label": "Break subtext", "default": "The cable is the only thing still touching the car. Make it soft." },
     { "type": "text", "id": "how_eyebrow", "label": "How eyebrow", "default": "The routine" },
     { "type": "text", "id": "how_heading", "label": "How heading", "default": "Fitted once. Forgotten all season." },
     { "type": "text", "id": "steps_titles", "label": "Step titles (separate with |)", "default": "Slide|Position|Connect|Forget" },

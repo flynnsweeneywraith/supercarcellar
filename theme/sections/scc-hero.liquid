@@ -73,6 +73,17 @@
     filter:drop-shadow(0 40px 80px rgba(0,0,0,.55))}
   @media(min-width:900px){.scc-hero__grid{grid-template-columns:1.05fr .95fr;gap:clamp(48px,5vw,88px)}}
 
+  .scc-marques{position:relative;background:#dfe0e4;border-block:1px solid rgba(10,10,12,.35);overflow:hidden;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+  .scc-marques__track{display:flex;width:max-content;padding-block:22px}
+  .scc-marques__set{display:flex;align-items:center;gap:clamp(44px,6vw,88px);padding-right:clamp(44px,6vw,88px)}
+  .scc-marques__set img{display:block;height:34px;width:auto;filter:grayscale(1);opacity:.82}
+  @media (prefers-reduced-motion:no-preference){
+    .scc-marques__track{animation:scc-marquee 42s linear infinite}
+    .scc-marques:hover .scc-marques__track{animation-play-state:paused}
+  }
+
   .scc-stats{border-block:1px solid var(--scc-line);background:var(--scc-panel)}
   .scc-stats__grid{display:grid;gap:0}
   .scc-stats__cell{padding:clamp(26px,3vw,40px) clamp(20px,3vw,44px);border-top:1px solid var(--scc-line)}
@@ -133,6 +144,25 @@
       </div>
     </div>
   </section>
+
+  {%- capture marque_set -%}
+    {%- assign cdn = 'https://cdn.shopify.com/s/files/1/0720/0296/1578/files/' -%}
+    <img src="{{ cdn }}marque-porsche.png" alt="Porsche" loading="lazy" height="34">
+    <img src="{{ cdn }}marque-ferrari.svg" alt="Ferrari" loading="lazy" height="34">
+    <img src="{{ cdn }}marque-lamborghini.svg" alt="Lamborghini" loading="lazy" height="34">
+    <img src="{{ cdn }}marque-mclaren.svg" alt="McLaren" loading="lazy" height="34">
+    <img src="{{ cdn }}marque-aston-martin.svg" alt="Aston Martin" loading="lazy" height="34">
+    <img src="{{ cdn }}marque-bentley.svg" alt="Bentley" loading="lazy" height="34">
+    <img src="{{ cdn }}marque-rolls-royce.svg" alt="Rolls-Royce" loading="lazy" height="34">
+    <img src="{{ cdn }}marque-alfa-romeo.svg" alt="Alfa Romeo" loading="lazy" height="34">
+    <img src="{{ cdn }}marque-chevrolet.svg" alt="Chevrolet" loading="lazy" height="34">
+  {%- endcapture -%}
+  <div class="scc-marques" role="img" aria-label="Fits tenders used on Porsche, Ferrari, Lamborghini, McLaren, Aston Martin, Bentley, Rolls-Royce, Alfa Romeo and Chevrolet garages">
+    <div class="scc-marques__track">
+      <div class="scc-marques__set" aria-hidden="true">{{ marque_set }}</div>
+      <div class="scc-marques__set" aria-hidden="true">{{ marque_set }}</div>
+    </div>
+  </div>
 
   <section class="scc-stats" aria-label="Product facts">
     <div class="scc-wrap" style="padding-inline:0">

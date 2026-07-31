@@ -142,6 +142,28 @@ _(Theme deploy queue fully applied 2026-07-31 — see log below.)_
   (`SHOPIFY_CLI_THEME_TOKEN`) to run the dev server. `theme-src/`
   gitignored.
 
+- 2026-07-31 · Owner request · Remove Porsche full-bleed break; rebuild the
+  offer section as a product page (Grüns as reference, SCC aesthetic);
+  car-brand logo marquee in the hero. Logo SVGs arrived on branch
+  `claude/taste-skill-integration-qz5c0o`; merged into this branch.
+- 2026-07-31 · File edits · `theme/sections/` · scc-story: break section
+  removed (markup, CSS, schema). scc-hero: added `scc-marques` silver
+  marquee band (9 grayscale brand logos, seamless loop, pauses on hover,
+  static under reduced-motion). scc-buy: rebuilt as product-page layout —
+  sticky 4-image gallery with thumbnails, pack selector (Twin Pack
+  pre-selected with "Second sleeve half price" flag, strikethrough
+  AUD 59.98, "Save AUD 14.99", per-sleeve price — all computed from live
+  product prices), checklist, assurance row. Duplicate Porsche SVG dropped;
+  svgo-minified copies in `assets/marques/` (Porsche rasterized to PNG,
+  5.6MB→41KB).
+- 2026-07-31 · **API write** · `stagedUploadsCreate` + curl (9×201) +
+  `fileCreate` ×9 · marque-porsche.png + 8 marque-*.svg to Shopify Files,
+  exact filenames, all READY.
+- 2026-07-31 · **API write** · `themeFilesUpsert` · scc-hero / scc-story /
+  scc-buy into "Horizon" (147636748458), checksums verified. NOTE: live
+  "Copy of Horizon" still has the old sections (MAIN is write-blocked) —
+  publishing "Horizon" ships everything at once.
+
 ## Task status
 
 | # | Task | Status |
