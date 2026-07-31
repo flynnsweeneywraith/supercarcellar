@@ -224,6 +224,14 @@ _(Theme deploy queue fully applied 2026-07-31 — see log below.)_
   that kept serving the old tall version); story + proof fallbacks updated
   to it. Checksums verified.
 
+- 2026-07-31 · File create + **API write** · `themeFilesUpsert` ×2 into
+  "Horizon" · New `sections/scc-announce.liquid`: continuously scrolling
+  red announcement ticker ("Buy two — get the second sleeve 50% off"),
+  links to /#scc-buy, pauses on hover, static under reduced-motion.
+  `sections/header-group.json`: replaced Horizon's static "Welcome to our
+  store" announcement bar with the ticker, above the header. Content
+  verified in theme.
+
 ## Task status
 
 | # | Task | Status |

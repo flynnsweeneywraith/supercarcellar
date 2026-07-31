@@ -1,0 +1,52 @@
+{%- comment -%}
+  Supercar Cellar — top announcement ticker. Continuously scrolling offer
+  text on the accent red bar. Self-contained (no dependency on other scc
+  sections). Static centered text under prefers-reduced-motion.
+{%- endcomment -%}
+
+{%- style -%}
+  .scc-announce{display:block;background:#8e1f2c;color:#fff;text-decoration:none;overflow:hidden;position:relative}
+  .scc-announce:hover{background:#a52534}
+  .scc-announce__track{display:flex;width:max-content}
+  .scc-announce__set{display:flex;align-items:center;white-space:nowrap;padding:10px 0}
+  .scc-announce__set span{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+    padding:0 26px;position:relative}
+  .scc-announce__set span::after{content:"";position:absolute;right:-3px;top:50%;width:5px;height:5px;
+    border-radius:50%;background:rgba(255,255,255,.55);transform:translateY(-50%)}
+  .scc-announce__static{display:none;text-align:center;padding:10px 16px;font-size:12px;font-weight:800;
+    letter-spacing:.16em;text-transform:uppercase}
+  @media (prefers-reduced-motion:no-preference){
+    @keyframes scc-announce-move{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    .scc-announce__track{animation:scc-announce-move {{ section.settings.speed | default: 26 }}s linear infinite}
+    .scc-announce:hover .scc-announce__track{animation-play-state:paused}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .scc-announce__track{display:none}
+    .scc-announce__static{display:block}
+  }
+{%- endstyle -%}
+
+<a class="scc-announce" href="{{ section.settings.link | default: '/#scc-buy' }}" aria-label="{{ section.settings.text | escape }}">
+  <div class="scc-announce__track" aria-hidden="true">
+    <div class="scc-announce__set">
+      {%- for i in (1..8) -%}<span>{{ section.settings.text }}</span>{%- endfor -%}
+    </div>
+    <div class="scc-announce__set">
+      {%- for i in (1..8) -%}<span>{{ section.settings.text }}</span>{%- endfor -%}
+    </div>
+  </div>
+  <p class="scc-announce__static">{{ section.settings.text }}</p>
+</a>
+
+{% schema %}
+{
+  "name": "SCC Announcement Ticker",
+  "settings": [
+    { "type": "text", "id": "text", "label": "Ticker text", "default": "Buy two — get the second sleeve 50% off" },
+    { "type": "url", "id": "link", "label": "Link" },
+    { "type": "range", "id": "speed", "label": "Scroll duration (seconds)", "min": 10, "max": 60, "step": 2, "default": 26 }
+  ],
+  "enabled_on": { "groups": ["header"] },
+  "presets": [{ "name": "SCC Announcement Ticker" }]
+}
+{% endschema %}
