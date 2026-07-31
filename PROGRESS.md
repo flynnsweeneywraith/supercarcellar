@@ -178,6 +178,20 @@ _(Theme deploy queue fully applied 2026-07-31 — see log below.)_
   the 9 logo images (same silver band as hero); `marques` setting removed.
   scc-buy: auto-selects first pack card if none checked.
 
+- 2026-07-31 · **API write** · `productReorderMedia` ×2 · packaging-hero is
+  now the featured image on both products (owner wants the pack shot as the
+  front image).
+- 2026-07-31 · File edits + **API write** · `themeFilesUpsert` ×5 into
+  "Horizon" (147636748458), checksums verified · scc-proof: "The practical
+  part" strip removed (with its [PLACEHOLDER] duties/returns text).
+  scc-story: "Slides over the cable you already own" feature removed from
+  both templates; fallback images realigned. scc-buy: rebuilt Grüns-style —
+  red offer banner over the gallery ("Buy two — second sleeve 50% off"),
+  1-sleeve / 2-sleeves tab buttons (2-sleeves solid red, pre-selected,
+  floating "Save $14.99" badge), per-option detail panel (price, strike,
+  per-sleeve, ticks, pack thumbnail), CTA shows live price. Gallery leads
+  with packaging shot.
+
 ## Task status
 
 | # | Task | Status |

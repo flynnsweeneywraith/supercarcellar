@@ -5,18 +5,35 @@
       "blocks": {
         "stat1": {
           "type": "stat",
-          "settings": { "value": "0", "unit": "", "caption": "hooks, magnets or hardware touching your paint" }
+          "settings": {
+            "value": "0",
+            "unit": "",
+            "caption": "hooks, magnets or hardware touching your paint"
+          }
         },
         "stat2": {
           "type": "stat",
-          "settings": { "value": "60", "unit": "sec", "caption": "to fit over your existing tender cable", "count_up": true }
+          "settings": {
+            "value": "60",
+            "unit": "sec",
+            "caption": "to fit over your existing tender cable",
+            "count_up": true
+          }
         },
         "stat3": {
           "type": "stat",
-          "settings": { "value": "5-8", "unit": "yrs", "caption": "expected service life. Bought once." }
+          "settings": {
+            "value": "5-8",
+            "unit": "yrs",
+            "caption": "expected service life. Bought once."
+          }
         }
       },
-      "block_order": ["stat1", "stat2", "stat3"]
+      "block_order": [
+        "stat1",
+        "stat2",
+        "stat3"
+      ]
     },
     "story": {
       "type": "scc-story",
@@ -29,14 +46,6 @@
             "body": "The sleeve lies flat over the guard and does not creep. Woven shell, flat stitched seam, a low-profile branded tab. Nothing to catch, nothing to rattle, nothing hard against the paint."
           }
         },
-        "feat2": {
-          "type": "feature",
-          "settings": {
-            "spec": "No disassembly",
-            "title": "Slides over the cable you already own",
-            "body": "No unplugging connectors, no rerouting. The sleeve slides along the run of cable that touches bodywork and stays where you put it."
-          }
-        },
         "feat3": {
           "type": "feature",
           "settings": {
@@ -46,7 +55,10 @@
           }
         }
       },
-      "block_order": ["feat1", "feat2", "feat3"]
+      "block_order": [
+        "feat1",
+        "feat3"
+      ]
     },
     "buy": {
       "type": "scc-buy",
@@ -108,8 +120,21 @@
           }
         }
       },
-      "block_order": ["faq1", "faq2", "faq3", "faq4", "faq5", "faq6", "faq7"]
+      "block_order": [
+        "faq1",
+        "faq2",
+        "faq3",
+        "faq4",
+        "faq5",
+        "faq6",
+        "faq7"
+      ]
     }
   },
-  "order": ["hero", "story", "buy", "proof"]
+  "order": [
+    "hero",
+    "story",
+    "buy",
+    "proof"
+  ]
 }

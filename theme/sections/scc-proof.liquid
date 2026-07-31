@@ -23,13 +23,6 @@
   .scc-reviews__ph{border:1px dashed rgba(230,231,234,.22);color:#6a6c74;font-size:13px;padding:30px;border-radius:2px}
   @media(min-width:900px){.scc-reviews__grid{grid-template-columns:repeat(3,1fr)}}
 
-  .scc-ship{padding-block:var(--scc-gap,96px)}
-  .scc-ship__grid{display:grid;gap:22px;margin-top:48px}
-  .scc-ship__cell{border-top:1px solid var(--scc-line,rgba(230,231,234,.08));padding-top:24px}
-  .scc-ship__cell h3{font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;margin-bottom:12px}
-  .scc-ship__cell p{color:var(--scc-mut,#9ea0a8);font-size:14.5px;max-width:36ch}
-  @media(min-width:768px){.scc-ship__grid{grid-template-columns:repeat(3,1fr);gap:44px}}
-
   .scc-faq{border-top:1px solid var(--scc-line,rgba(230,231,234,.08));padding-block:var(--scc-gap,96px)}
   .scc-faq__list{margin-top:44px;max-width:820px}
   .scc-faq details{border-bottom:1px solid var(--scc-line,rgba(230,231,234,.08))}
@@ -109,17 +102,6 @@
   </section>
   {%- endif -%}
 
-  <section class="scc-ship">
-    <div class="scc-wrap">
-      <p class="scc-label scc-reveal">{{ section.settings.ship_eyebrow }}</p>
-      <div class="scc-ship__grid">
-        <div class="scc-ship__cell scc-reveal"><h3>{{ section.settings.ship_1_title }}</h3><p>{{ section.settings.ship_1_body }}</p></div>
-        <div class="scc-ship__cell scc-reveal" style="transition-delay:.07s"><h3>{{ section.settings.ship_2_title }}</h3><p>{{ section.settings.ship_2_body }}</p></div>
-        <div class="scc-ship__cell scc-reveal" style="transition-delay:.14s"><h3>{{ section.settings.ship_3_title }}</h3><p>{{ section.settings.ship_3_body }}</p></div>
-      </div>
-    </div>
-  </section>
-
   <section class="scc-faq">
     <div class="scc-wrap">
       <p class="scc-label scc-reveal">{{ section.settings.faq_eyebrow }}</p>
@@ -193,13 +175,6 @@
     { "type": "image_picker", "id": "final_bg", "label": "Final band background (13% opacity)" },
     { "type": "checkbox", "id": "show_reviews", "label": "Show reviews section", "default": false },
     { "type": "text", "id": "reviews_eyebrow", "label": "Reviews eyebrow", "default": "From the garage" },
-    { "type": "text", "id": "ship_eyebrow", "label": "Shipping eyebrow", "default": "The practical part" },
-    { "type": "text", "id": "ship_1_title", "label": "Cell 1 title", "default": "Shipping" },
-    { "type": "textarea", "id": "ship_1_body", "label": "Cell 1 body", "default": "Ships from Australia with tracking. International destinations supported at checkout." },
-    { "type": "text", "id": "ship_2_title", "label": "Cell 2 title", "default": "Duties" },
-    { "type": "textarea", "id": "ship_2_body", "label": "Cell 2 body", "default": "[PLACEHOLDER · confirm duties policy: prices exclude import duties unless stated at checkout]" },
-    { "type": "text", "id": "ship_3_title", "label": "Cell 3 title", "default": "Returns" },
-    { "type": "textarea", "id": "ship_3_body", "label": "Cell 3 body", "default": "[PLACEHOLDER · confirm returns window and conditions before launch]" },
     { "type": "text", "id": "faq_eyebrow", "label": "FAQ eyebrow", "default": "Sensible questions" },
     { "type": "text", "id": "faq_heading", "label": "FAQ heading", "default": "Before you ask." },
     { "type": "image_picker", "id": "logo", "label": "Brand logo (final band)" },
