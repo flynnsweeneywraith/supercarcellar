@@ -14,25 +14,51 @@
     --scc-display:"Archivo",system-ui,sans-serif;
     --scc-r:2px; --scc-gap:clamp(56px,9vw,128px);
   }
-  .scc{background:var(--scc-bg);color:var(--scc-ink);font-family:var(--scc-display);font-size:16px;line-height:1.6}
+  .scc{background:var(--scc-bg);color:var(--scc-ink);font-family:var(--scc-display);font-size:16px;line-height:1.6;overflow-x:clip}
+  .scc-bglayer{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+  .scc-bglayer img{width:100%;height:100%;object-fit:cover;opacity:.13;
+    -webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 18%,#000 78%,transparent 100%);
+    mask-image:linear-gradient(180deg,transparent 0%,#000 18%,#000 78%,transparent 100%)}
   .scc *{box-sizing:border-box;margin:0}
   .scc-wrap{max-width:1320px;margin:0 auto;padding-inline:clamp(20px,4vw,48px)}
   .scc-label{font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--scc-mut)}
-  .scc-btn{display:inline-flex;align-items:center;gap:10px;background:var(--scc-acc);color:#fff;text-decoration:none;
+  .scc-btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:10px;background:var(--scc-acc);color:#fff;text-decoration:none;
     font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;padding:18px 34px;border-radius:var(--scc-r);
-    border:0;cursor:pointer;transition:background .2s ease,transform .12s ease;min-height:44px}
-  .scc-btn:hover{background:var(--scc-acc-hi)}
+    border:0;cursor:pointer;transition:background .2s ease,transform .12s ease,box-shadow .3s ease;min-height:44px}
+  .scc-btn:hover{background:var(--scc-acc-hi);box-shadow:0 8px 32px rgba(142,31,44,.35)}
   .scc-btn:active{transform:translateY(1px)}
   .scc-btn--ghost{background:transparent;border:1px solid var(--scc-line);color:var(--scc-ink)}
   .scc-btn--ghost:hover{background:rgba(230,231,234,.06)}
   @media (prefers-reduced-motion:no-preference){
-    .scc-reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
-    .scc-reveal.is-in{opacity:1;transform:none}
+    .scc-reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+    .scc-reveal-l{opacity:0;transform:translateX(-44px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+    .scc-reveal-r{opacity:0;transform:translateX(44px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+    .scc-reveal.is-in,.scc-reveal-l.is-in,.scc-reveal-r.is-in{opacity:1;transform:none}
+    .scc-lines span{display:block;overflow:hidden}
+    .scc-lines span i{display:block;font-style:normal;transform:translateY(110%);transition:transform .9s cubic-bezier(.16,1,.3,1)}
+    .scc-lines.is-in span:nth-child(1) i{transition-delay:.05s}
+    .scc-lines.is-in span:nth-child(2) i{transition-delay:.15s}
+    .scc-lines.is-in span i{transform:none}
+    @keyframes scc-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+    @keyframes scc-kb{0%{transform:scale(1)}100%{transform:scale(1.09)}}
+    @keyframes scc-glow{0%,100%{opacity:.55}50%{opacity:1}}
+    @keyframes scc-marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    .scc-hero__media img{animation:scc-float 7s ease-in-out infinite}
+    .scc-kb img{animation:scc-kb 22s linear infinite alternate}
+    .scc-final::after{animation:scc-glow 6s ease-in-out infinite}
+    .scc-marquee__track{animation:scc-marquee 36s linear infinite}
+    .scc-marquee:hover .scc-marquee__track{animation-play-state:paused}
+    .scc-how__step::after{width:0;transition:width .8s cubic-bezier(.16,1,.3,1) .2s}
+    .scc-how__step.is-in::after{width:44px}
+    .scc-btn::after{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;
+      background:linear-gradient(100deg,transparent,rgba(255,255,255,.28),transparent);transform:skewX(-20deg);transition:left .6s ease}
+    .scc-btn:hover::after{left:130%}
   }
 
   .scc-hero{position:relative;overflow:hidden;padding-block:clamp(48px,7vw,96px) var(--scc-gap)}
-  .scc-hero::before{content:"";position:absolute;inset:0;pointer-events:none;
-    background:radial-gradient(90% 70% at 78% 30%,rgba(142,31,44,.14),transparent 60%)}
+  .scc-hero::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;
+    background:radial-gradient(90% 70% at 78% 30%,rgba(142,31,44,.16),transparent 60%)}
+  .scc-hero .scc-wrap{position:relative;z-index:2}
   .scc-hero__grid{display:grid;gap:48px;align-items:center;position:relative}
   .scc-hero__logo{display:block;height:clamp(64px,7vw,88px);width:auto;margin-bottom:26px}
   .scc-hero__h1{font-size:clamp(40px,6.2vw,88px);line-height:.98;font-weight:800;letter-spacing:-.025em;
@@ -63,6 +89,13 @@
 
 <div class="scc">
   <section class="scc-hero">
+    <div class="scc-bglayer scc-kb">
+      {%- if section.settings.bg_image != blank -%}
+        {{ section.settings.bg_image | image_url: width: 2000 | image_tag: alt: '', loading: 'eager' }}
+      {%- else -%}
+        <img src="https://cdn.shopify.com/s/files/1/0720/0296/1578/files/cellar-dark.jpg" alt="" loading="eager">
+      {%- endif -%}
+    </div>
     <div class="scc-wrap">
       <div class="scc-hero__grid">
         <div>
@@ -73,8 +106,8 @@
               alt="Supercar Cellar" width="637" height="546" loading="eager">
           {%- endif -%}
           <p class="scc-label scc-reveal">{{ section.settings.eyebrow }}</p>
-          <h1 class="scc-hero__h1 scc-reveal" style="transition-delay:.06s">
-            {{ section.settings.heading_1 }} <em>{{ section.settings.heading_2 }}</em>
+          <h1 class="scc-hero__h1 scc-lines">
+            <span><i>{{ section.settings.heading_1 }}</i></span><span><i><em>{{ section.settings.heading_2 }}</em></i></span>
           </h1>
           <p class="scc-hero__sub scc-reveal" style="transition-delay:.12s">{{ section.settings.subtext }}</p>
           <div class="scc-hero__ctas scc-reveal" style="transition-delay:.18s">
@@ -106,7 +139,7 @@
       <div class="scc-stats__grid">
         {%- for block in section.blocks -%}
           <div class="scc-stats__cell scc-reveal" {{ block.shopify_attributes }}>
-            <p class="scc-stats__num">{{ block.settings.value }}<sub>{{ block.settings.unit }}</sub></p>
+            <p class="scc-stats__num">{%- if block.settings.count_up -%}<span data-count="{{ block.settings.value }}">0</span>{%- else -%}{{ block.settings.value }}{%- endif -%}<sub>{{ block.settings.unit }}</sub></p>
             <p class="scc-stats__cap">{{ block.settings.caption }}</p>
           </div>
         {%- endfor -%}
@@ -117,13 +150,36 @@
 
 <script>
   (function(){
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      document.querySelectorAll('.scc-reveal').forEach(function(el){ el.classList.add('is-in'); }); return;
+    var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function arm(){
+      var els = document.querySelectorAll('.scc-reveal,.scc-reveal-l,.scc-reveal-r,.scc-lines,.scc-how__step');
+      if (reduce) {
+        els.forEach(function(el){ el.classList.add('is-in'); });
+        document.querySelectorAll('[data-count]').forEach(function(c){ c.textContent = c.dataset.count; });
+        return;
+      }
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(!e.isIntersecting) return;
+          e.target.classList.add('is-in');
+          var counter = e.target.querySelector('[data-count]');
+          if (counter && !counter.dataset.done) {
+            counter.dataset.done = '1';
+            var target = parseInt(counter.dataset.count, 10), start = null;
+            function tick(ts){
+              if(!start) start = ts;
+              var p = Math.min((ts - start) / 1200, 1);
+              counter.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+              if (p < 1) requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+          }
+          io.unobserve(e.target);
+        });
+      }, {threshold:.18});
+      els.forEach(function(el){ io.observe(el); });
     }
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('is-in'); io.unobserve(e.target); } });
-    }, {threshold:.18});
-    document.querySelectorAll('.scc-reveal').forEach(function(el){ io.observe(el); });
+    if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', arm); } else { arm(); }
   })();
 </script>
 
@@ -132,6 +188,7 @@
   "name": "SCC Hero + Stats",
   "settings": [
     { "type": "image_picker", "id": "logo", "label": "Brand logo" },
+    { "type": "image_picker", "id": "bg_image", "label": "Background image (rendered at 13% opacity)" },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Paint Protection" },
     { "type": "text", "id": "heading_1", "label": "Headline (silver part)", "default": "The tender keeps the battery." },
     { "type": "text", "id": "heading_2", "label": "Headline (accent part)", "default": "This keeps the paint." },
@@ -150,7 +207,8 @@
       "settings": [
         { "type": "text", "id": "value", "label": "Value", "default": "0" },
         { "type": "text", "id": "unit", "label": "Unit (small)", "default": "" },
-        { "type": "text", "id": "caption", "label": "Caption", "default": "metal parts touching your paint" }
+        { "type": "text", "id": "caption", "label": "Caption", "default": "metal parts touching your paint" },
+        { "type": "checkbox", "id": "count_up", "label": "Animate number counting up", "default": false }
       ]
     }
   ],

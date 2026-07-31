@@ -9,7 +9,7 @@
         },
         "stat2": {
           "type": "stat",
-          "settings": { "value": "60", "unit": "sec", "caption": "to fit over your existing tender cable" }
+          "settings": { "value": "60", "unit": "sec", "caption": "to fit over your existing tender cable", "count_up": true }
         },
         "stat3": {
           "type": "stat",

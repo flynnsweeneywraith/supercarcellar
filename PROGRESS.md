@@ -70,14 +70,18 @@ Format: `date · action · target/IDs · result`
 
 1. Owner: duplicate the Horizon theme in admin (Online Store → Themes → ⋯ →
    Duplicate). API cannot duplicate a theme and cannot write to the live one.
-2. When Shopify connector is back: upload `assets/supercar-cellar-logo.png`
-   to Shopify Files with exactly that filename (theme sections reference
-   `.../files/supercar-cellar-logo.png` as fallback), `themeFilesUpsert` the
-   5 files in `theme/` into the duplicate, then `pageUpdate` templateSuffix
-   `super-car-cellar` on page 118139879594.
-2b. Owner uploading more photography to `assets/` (garage scene, problem
-   macro, fitted close-up). Claude curates: best wide shot → full-bleed
-   break; macro → problem slot; fitted shot → feature row. Skip filler.
+2. When Shopify connector is back: upload to Shopify Files with EXACTLY
+   these filenames (theme fallbacks reference `.../files/<name>`):
+   `supercar-cellar-logo.png`, `cellar-dark.jpg`, `showroom-red.jpg`,
+   `garage-porsche-trio.jpg`, `collection-room.jpg`. Then `themeFilesUpsert`
+   the 5 files in `theme/` into the duplicate, then `pageUpdate`
+   templateSuffix `super-car-cellar` on page 118139879594.
+   (2026-07-31: owner's 4 garage images placed: cellar-dark → hero bg 13%,
+   showroom-red → problem img + final bg, garage-porsche-trio → full-bleed
+   break, collection-room → feature 3 + fit bg. Animation pass added:
+   line-reveal headline, floating pack shot, Ken Burns backgrounds, count-up
+   stat, step line draws, directional feature reveals, marque marquee,
+   card hover lift, button sheen. All gated by prefers-reduced-motion.)
 3. Owner previews in theme editor; publishing the theme is owner's click.
 
 - 2026-07-31 · **API write** · `update-product` ×2 · Single variant price

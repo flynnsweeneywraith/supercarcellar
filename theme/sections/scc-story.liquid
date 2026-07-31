@@ -10,10 +10,16 @@
   .scc-story__problem{padding-block:var(--scc-gap,96px)}
   .scc-story__problem-grid{display:grid;gap:40px;align-items:end}
   .scc-story__problem p.lede{color:var(--scc-mut,#9ea0a8);font-size:clamp(16px,1.35vw,19px);max-width:52ch;margin-top:20px}
-  .scc-story__evidence{background:var(--scc-panel,#111114);border:1px dashed rgba(230,231,234,.22);border-radius:2px;
-    aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;text-align:center;padding:28px}
-  .scc-story__evidence span{color:#6a6c74;font-size:13px;max-width:34ch}
-  @media(min-width:900px){.scc-story__problem-grid{grid-template-columns:1fr 1fr;gap:72px}}
+  .scc-story__img{overflow:hidden;border-radius:2px;border:1px solid var(--scc-line,rgba(230,231,234,.08))}
+  .scc-story__img img{display:block;width:100%;height:auto}
+  @media(min-width:900px){.scc-story__problem-grid{grid-template-columns:1.05fr .95fr;gap:72px}}
+
+  .scc-break{position:relative;height:clamp(420px,60vh,640px);overflow:hidden;border-block:1px solid var(--scc-line,rgba(230,231,234,.08))}
+  .scc-break img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 62%}
+  .scc-break::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,12,.72) 0%,rgba(10,10,12,.18) 45%,rgba(10,10,12,.82) 100%)}
+  .scc-break__copy{position:absolute;left:0;right:0;bottom:clamp(36px,6vw,72px);z-index:2;text-align:center;padding-inline:20px}
+  .scc-break__copy h2{font-size:clamp(26px,3.6vw,48px);font-weight:800;letter-spacing:-.02em;line-height:1.05;text-wrap:balance}
+  .scc-break__copy p{color:#c9cad1;margin-top:12px;font-size:clamp(14px,1.2vw,17px)}
 
   .scc-how{border-block:1px solid var(--scc-line,rgba(230,231,234,.08));background:var(--scc-panel,#111114);
     padding-block:var(--scc-gap,96px)}
@@ -45,22 +51,32 @@
   <section class="scc-story__problem">
     <div class="scc-wrap">
       <div class="scc-story__problem-grid">
-        <div class="scc-reveal">
+        <div class="scc-reveal-l">
           <p class="scc-label">{{ section.settings.problem_eyebrow }}</p>
           <h2 class="scc-h2" style="margin-top:18px">{{ section.settings.problem_heading }}</h2>
           <p class="lede">{{ section.settings.problem_text }}</p>
         </div>
-        <div class="scc-reveal" style="transition-delay:.1s">
+        <div class="scc-story__img scc-reveal-r">
           {%- if section.settings.problem_image != blank -%}
             {{ section.settings.problem_image | image_url: width: 1400 | image_tag:
                 widths: '640,960,1400', sizes: '(min-width:900px) 46vw, 92vw', loading: 'lazy' }}
           {%- else -%}
-            <div class="scc-story__evidence">
-              <span>PLACEHOLDER · macro shot of swirl marks or cable resting on a sill. Supply real photography, then select it in the theme editor.</span>
-            </div>
+            <img src="https://cdn.shopify.com/s/files/1/0720/0296/1578/files/showroom-red.jpg" alt="Stored performance cars in a dark showroom" loading="lazy">
           {%- endif -%}
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="scc-break scc-kb">
+    {%- if section.settings.break_image != blank -%}
+      {{ section.settings.break_image | image_url: width: 2400 | image_tag: alt: section.settings.break_image.alt | default: 'Collector cars in storage', loading: 'lazy' }}
+    {%- else -%}
+      <img src="https://cdn.shopify.com/s/files/1/0720/0296/1578/files/garage-porsche-trio.jpg" alt="Three collector Porsches stored under panel lighting" loading="lazy">
+    {%- endif -%}
+    <div class="scc-break__copy scc-reveal">
+      <h2>{{ section.settings.break_heading }}</h2>
+      <p>{{ section.settings.break_sub }}</p>
     </div>
   </section>
 
@@ -88,18 +104,26 @@
       <p class="scc-label scc-reveal">{{ section.settings.feat_eyebrow }}</p>
       <h2 class="scc-h2 scc-reveal" style="margin-top:18px">{{ section.settings.feat_heading }}</h2>
       <div class="scc-feat__rows">
+        {%- assign fallbacks = "sleeve-coiled.png|packaging-hero.png|collection-room.jpg" | split: "|" -%}
         {%- for block in section.blocks -%}
-          <div class="scc-feat__row scc-reveal" {{ block.shopify_attributes }}>
-            <div>
+          {%- assign fb_index = forloop.index0 | modulo: 3 -%}
+          {%- assign dir_rem = forloop.index0 | modulo: 2 -%}
+          {%- if dir_rem == 0 -%}
+            {%- assign img_dir = 'scc-reveal-l' -%}{%- assign txt_dir = 'scc-reveal-r' -%}
+          {%- else -%}
+            {%- assign img_dir = 'scc-reveal-r' -%}{%- assign txt_dir = 'scc-reveal-l' -%}
+          {%- endif -%}
+          <div class="scc-feat__row" {{ block.shopify_attributes }}>
+            <div class="{{ img_dir }}">
               {%- if block.settings.image != blank -%}
                 {{ block.settings.image | image_url: width: 1400 | image_tag:
                     widths: '640,960,1400', sizes: '(min-width:900px) 46vw, 92vw', loading: 'lazy' }}
               {%- else -%}
-                <img src="https://cdn.shopify.com/s/files/1/0720/0296/1578/files/sleeve-coiled.png?v=1785465889"
-                  alt="Cord Cushion matte woven sleeve over a battery tender cable" width="1254" height="1254" loading="lazy">
+                <img src="https://cdn.shopify.com/s/files/1/0720/0296/1578/files/{{ fallbacks[fb_index] }}"
+                  alt="{{ block.settings.title | escape }}" loading="lazy">
               {%- endif -%}
             </div>
-            <div>
+            <div class="{{ txt_dir }}">
               <p class="scc-feat__spec">{{ block.settings.spec }}</p>
               <h3>{{ block.settings.title }}</h3>
               <p>{{ block.settings.body }}</p>
@@ -118,7 +142,10 @@
     { "type": "text", "id": "problem_eyebrow", "label": "Problem eyebrow", "default": "The problem" },
     { "type": "text", "id": "problem_heading", "label": "Problem heading", "default": "Six months on a tender is six months of contact." },
     { "type": "textarea", "id": "problem_text", "label": "Problem text", "default": "The charge cable runs from the wall, over your bodywork, down to the battery. It rests on the same square inch of clear coat the entire storage season, and it moves every time the garage does. The towel you drape under it slips. The marks stay." },
-    { "type": "image_picker", "id": "problem_image", "label": "Evidence image (macro of swirl marks)" },
+    { "type": "image_picker", "id": "problem_image", "label": "Problem image" },
+    { "type": "image_picker", "id": "break_image", "label": "Full-bleed break image" },
+    { "type": "text", "id": "break_heading", "label": "Break heading", "default": "Covered. Connected. Untouched." },
+    { "type": "text", "id": "break_sub", "label": "Break subtext", "default": "The cable is the only thing still touching the car. Make it soft." },
     { "type": "text", "id": "how_eyebrow", "label": "How eyebrow", "default": "The system" },
     { "type": "text", "id": "how_heading", "label": "How heading", "default": "Fitted once. Forgotten all season." },
     { "type": "text", "id": "steps_titles", "label": "Step titles (separate with |)", "default": "Slide|Position|Connect|Forget" },
