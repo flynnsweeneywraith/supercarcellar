@@ -85,7 +85,7 @@
       <p class="scc-label scc-reveal">{{ section.settings.feat_eyebrow }}</p>
       <h2 class="scc-h2 scc-reveal" style="margin-top:18px">{{ section.settings.feat_heading }}</h2>
       <div class="scc-feat__rows">
-        {%- assign fallbacks = "solution-sleeve-fitted.png|collection-room.jpg|sleeve-coiled.png" | split: "|" -%}
+        {%- assign fallbacks = "solution-sleeve-fitted.png|collection-room-sq.jpg|sleeve-coiled.png" | split: "|" -%}
         {%- for block in section.blocks -%}
           {%- assign fb_index = forloop.index0 | modulo: 3 -%}
           {%- assign dir_rem = forloop.index0 | modulo: 2 -%}

@@ -217,6 +217,13 @@ _(Theme deploy queue fully applied 2026-07-31 — see log below.)_
   contact sheet). Both marquees now use the PNGs with no CSS filters.
   Checksums verified.
 
+- 2026-07-31 · File edits + **API write** · `themeFilesUpsert` ×3 +
+  `fileCreate` · Buy gallery sticky now desktop-only (was overlapping the
+  panel text when scrolling on narrow screens). Square collection-room crop
+  re-uploaded as `collection-room-sq.jpg` (new URL beats the CDN cache
+  that kept serving the old tall version); story + proof fallbacks updated
+  to it. Checksums verified.
+
 ## Task status
 
 | # | Task | Status |
