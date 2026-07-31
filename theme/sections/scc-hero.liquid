@@ -55,7 +55,7 @@
     .scc-btn:hover::after{left:130%}
   }
 
-  .scc-hero{position:relative;overflow:hidden;padding-block:clamp(48px,7vw,96px) var(--scc-gap)}
+  .scc-hero{position:relative;overflow:hidden;padding-block:clamp(48px,7vw,96px) clamp(36px,4.5vw,64px)}
   .scc-hero::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;
     background:radial-gradient(90% 70% at 78% 30%,rgba(142,31,44,.16),transparent 60%)}
   .scc-hero .scc-wrap{position:relative;z-index:2}
@@ -137,8 +137,8 @@
                 widths: '640,960,1254,1600', sizes: '(min-width:900px) 46vw, 92vw',
                 alt: section.settings.image.alt | default: 'Cord Cushion packaging', loading: 'eager', fetchpriority: 'high' }}
           {%- else -%}
-            <img src="https://cdn.shopify.com/s/files/1/0720/0296/1578/files/packaging-hero.png?v=1785465889"
-              alt="Cord Cushion retail packaging, black bag with Supercar Cellar shield" width="1254" height="1254" loading="eager" fetchpriority="high">
+            <img src="https://cdn.shopify.com/s/files/1/0720/0296/1578/files/sleeve-coiled.png?v=1785465889"
+              alt="Cord Cushion matte black woven sleeve fitted over a battery tender cable" width="1254" height="1254" loading="eager" fetchpriority="high">
           {%- endif -%}
         </div>
       </div>

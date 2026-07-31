@@ -248,6 +248,8 @@
         if(e.key === ' ' || e.key === 'Enter'){ e.preventDefault(); select(card); }
       });
     });
+    var initial = form.querySelector('[aria-checked="true"]') || cards[0];
+    if(initial) select(initial);
 
     var mainImg = document.getElementById('scc-buy-mainimg');
     var thumbs = document.querySelectorAll('.scc-buy__thumb');

@@ -164,6 +164,20 @@ _(Theme deploy queue fully applied 2026-07-31 — see log below.)_
   "Copy of Horizon" still has the old sections (MAIN is write-blocked) —
   publishing "Horizon" ships everything at once.
 
+- 2026-07-31 · **API write** · `bulk-update-product-status` ×2 · Cord Cushion
+  + Twin Pack DRAFT → **ACTIVE** (owner asked for working checkout; both
+  were already published to the Online Store channel). Storefront still
+  behind trial password.
+- 2026-07-31 · **API write** · `set-inventory` ×2 · Stock set to **100**
+  each at "Shop location" (was 0 / DENY — carts were impossible). Qty is a
+  placeholder for testing; owner to correct real stock in admin.
+- 2026-07-31 · File edits + **API write** · `themeFilesUpsert` ×3 into
+  "Horizon" (147636748458), checksums verified · scc-hero: hero image now
+  sleeve-on-cable shot (was packaging bag); hero bottom padding reduced so
+  the marque band sits higher. scc-proof: text marque names replaced with
+  the 9 logo images (same silver band as hero); `marques` setting removed.
+  scc-buy: auto-selects first pack card if none checked.
+
 ## Task status
 
 | # | Task | Status |

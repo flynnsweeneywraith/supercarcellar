@@ -54,12 +54,13 @@ explain steps plainly, avoid jargon, and never assume Shopify admin knowledge.
   Dark/premium automotive aesthetic — near-black, brushed silver, deep
   burgundy. Voice: understated, no exclamation marks, no hype adjectives.
   Sell paint protection, never "cable management".
-- Product: **Cord Cushion** · `gid://shopify/Product/8586440114346` · DRAFT ·
-  SKU `SCC-CC-001` · **AUD 29.99** (owner-confirmed 2026-07-31, applied) ·
-  vendor "Supercar Cellar" · type "Paint Protection" · inventory tracked,
-  qty 0 · 2 images attached (sleeve-coiled featured + packaging-hero; the
-  packaging shot's QR code is an AI mock — composite real artwork before
-  anything goes ACTIVE/published).
+- Product: **Cord Cushion** · `gid://shopify/Product/8586440114346` ·
+  **ACTIVE + published to Online Store, stock 100** (owner asked for working
+  checkout 2026-07-31; qty 100 is a test placeholder) · SKU `SCC-CC-001` ·
+  **AUD 29.99** (owner-confirmed) · vendor "Supercar Cellar" · type "Paint
+  Protection" · 2 images (sleeve-coiled featured + packaging-hero; packaging
+  QR is an AI mock — composite real artwork; product is now customer-visible
+  behind the trial password).
 - Pricing decision (owner, 2026-07-31): single AUD 29.99; pair offer is
   **50% off the second unit** → Twin Pack AUD 44.99. Owner is aware margin
   at this price is thin per the brief's cost model.
@@ -70,8 +71,9 @@ explain steps plainly, avoid jargon, and never assume Shopify admin knowledge.
   viable routes are kits (~USD 139 AOV), wholesale, B2B storage operators,
   audience attach.
 - Product: **Cord Cushion — Twin Pack** · `gid://shopify/Product/8586440868010`
-  · DRAFT · SKU `SCC-CC-002` · **AUD 44.99** (applied) · handle
-  `cord-cushion-twin-pack` · same 2 images attached.
+  · **ACTIVE + published, stock 100** (same 2026-07-31 change) · SKU
+  `SCC-CC-002` · **AUD 44.99** · handle `cord-cushion-twin-pack` · same 2
+  images attached.
 - Collection: **Cord Cushion Singles** · `gid://shopify/Collection/362710827178`
   · manual, single product only · was the BUNDLE20 scope; now unused by any
   discount (PAIR50 targets products directly). Safe to delete or repurpose.

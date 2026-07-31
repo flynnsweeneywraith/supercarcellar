@@ -7,12 +7,13 @@
   .scc-fit{position:relative;padding-block:var(--scc-gap,96px);overflow:hidden}
   .scc-fit .scc-wrap{position:relative;z-index:2}
   .scc-fit p.lede{color:var(--scc-mut,#9ea0a8);max-width:52ch;margin-top:20px;font-size:clamp(16px,1.35vw,19px)}
-  .scc-marquee{position:relative;z-index:2;margin-top:48px;overflow:hidden;border-block:1px solid var(--scc-line,rgba(230,231,234,.08));
+  .scc-marquee{position:relative;z-index:2;margin-top:48px;overflow:hidden;background:#dfe0e4;
+    border-block:1px solid rgba(10,10,12,.35);
     -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
     mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
   .scc-marquee__track{display:flex;width:max-content}
-  .scc-marquee__track span{display:inline-block;padding:22px 34px;font-size:clamp(18px,2vw,26px);font-weight:800;
-    letter-spacing:.14em;text-transform:uppercase;color:rgba(230,231,234,.5);white-space:nowrap}
+  .scc-marquee__set{display:flex;align-items:center;gap:clamp(40px,5vw,76px);padding:18px clamp(40px,5vw,76px) 18px 0}
+  .scc-marquee__set img{display:block;height:30px;width:auto;filter:grayscale(1);opacity:.82}
 
   .scc-reviews{border-block:1px solid var(--scc-line,rgba(230,231,234,.08));background:var(--scc-panel,#111114);padding-block:var(--scc-gap,96px)}
   .scc-reviews__grid{display:grid;gap:22px;margin-top:48px}
@@ -67,11 +68,22 @@
       <h2 class="scc-h2 scc-reveal" style="font-size:clamp(30px,3.8vw,52px);font-weight:800;letter-spacing:-.02em;margin-top:18px;line-height:1.04">{{ section.settings.fit_heading }}</h2>
       <p class="lede scc-reveal">{{ section.settings.fit_text }}</p>
     </div>
+    {%- capture proof_marques -%}
+      {%- assign cdn = 'https://cdn.shopify.com/s/files/1/0720/0296/1578/files/' -%}
+      <img src="{{ cdn }}marque-porsche.png" alt="Porsche" loading="lazy" height="30">
+      <img src="{{ cdn }}marque-ferrari.svg" alt="Ferrari" loading="lazy" height="30">
+      <img src="{{ cdn }}marque-lamborghini.svg" alt="Lamborghini" loading="lazy" height="30">
+      <img src="{{ cdn }}marque-mclaren.svg" alt="McLaren" loading="lazy" height="30">
+      <img src="{{ cdn }}marque-aston-martin.svg" alt="Aston Martin" loading="lazy" height="30">
+      <img src="{{ cdn }}marque-bentley.svg" alt="Bentley" loading="lazy" height="30">
+      <img src="{{ cdn }}marque-rolls-royce.svg" alt="Rolls-Royce" loading="lazy" height="30">
+      <img src="{{ cdn }}marque-alfa-romeo.svg" alt="Alfa Romeo" loading="lazy" height="30">
+      <img src="{{ cdn }}marque-chevrolet.svg" alt="Chevrolet" loading="lazy" height="30">
+    {%- endcapture -%}
     <div class="scc-marquee scc-reveal" aria-hidden="true">
       <div class="scc-marquee__track">
-        {%- assign marques = section.settings.marques | split: ',' -%}
-        {%- for m in marques -%}<span>{{ m | strip }}</span>{%- endfor -%}
-        {%- for m in marques -%}<span>{{ m | strip }}</span>{%- endfor -%}
+        <div class="scc-marquee__set">{{ proof_marques }}</div>
+        <div class="scc-marquee__set">{{ proof_marques }}</div>
       </div>
     </div>
   </section>
@@ -177,7 +189,6 @@
     { "type": "text", "id": "fit_eyebrow", "label": "Fit eyebrow", "default": "Compatibility" },
     { "type": "text", "id": "fit_heading", "label": "Fit heading", "default": "Any tender. Any car." },
     { "type": "textarea", "id": "fit_text", "label": "Fit text", "default": "Cord Cushion slides over the cable of common battery tenders and trickle chargers. If your charger runs an unusually thick cable, contact us before ordering and we will confirm fit." },
-    { "type": "text", "id": "marques", "label": "Marques (comma separated)", "default": "Ferrari, Porsche, Lamborghini, McLaren, Aston Martin, Corvette, Classics" },
     { "type": "image_picker", "id": "fit_bg", "label": "Compatibility background (13% opacity)" },
     { "type": "image_picker", "id": "final_bg", "label": "Final band background (13% opacity)" },
     { "type": "checkbox", "id": "show_reviews", "label": "Show reviews section", "default": false },
