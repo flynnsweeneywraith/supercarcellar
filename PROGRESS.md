@@ -73,7 +73,9 @@ Format: `date · action · target/IDs · result`
 2. When Shopify connector is back: upload to Shopify Files with EXACTLY
    these filenames (theme fallbacks reference `.../files/<name>`):
    `supercar-cellar-logo.png`, `cellar-dark.jpg`, `showroom-red.jpg`,
-   `garage-porsche-trio.jpg`, `collection-room.jpg`. Then `themeFilesUpsert`
+   `garage-porsche-trio.jpg`, `collection-room.jpg`,
+   `problem-cable-on-paint.png`, `solution-sleeve-fitted.png`.
+   Then `themeFilesUpsert`
    the 5 files in `theme/` into the duplicate, then `pageUpdate`
    templateSuffix `super-car-cellar` on page 118139879594.
    (2026-07-31: owner's 4 garage images placed: cellar-dark → hero bg 13%,

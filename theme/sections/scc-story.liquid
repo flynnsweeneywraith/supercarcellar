@@ -61,7 +61,7 @@
             {{ section.settings.problem_image | image_url: width: 1400 | image_tag:
                 widths: '640,960,1400', sizes: '(min-width:900px) 46vw, 92vw', loading: 'lazy' }}
           {%- else -%}
-            <img src="https://cdn.shopify.com/s/files/1/0720/0296/1578/files/showroom-red.jpg" alt="Stored performance cars in a dark showroom" loading="lazy">
+            <img src="https://cdn.shopify.com/s/files/1/0720/0296/1578/files/problem-cable-on-paint.png" alt="Bare battery tender cable and connector resting on red paintwork with fine swirl marks" loading="lazy">
           {%- endif -%}
         </div>
       </div>
@@ -104,7 +104,7 @@
       <p class="scc-label scc-reveal">{{ section.settings.feat_eyebrow }}</p>
       <h2 class="scc-h2 scc-reveal" style="margin-top:18px">{{ section.settings.feat_heading }}</h2>
       <div class="scc-feat__rows">
-        {%- assign fallbacks = "sleeve-coiled.png|packaging-hero.png|collection-room.jpg" | split: "|" -%}
+        {%- assign fallbacks = "solution-sleeve-fitted.png|sleeve-coiled.png|collection-room.jpg" | split: "|" -%}
         {%- for block in section.blocks -%}
           {%- assign fb_index = forloop.index0 | modulo: 3 -%}
           {%- assign dir_rem = forloop.index0 | modulo: 2 -%}
@@ -140,13 +140,13 @@
   "name": "SCC Story + Features",
   "settings": [
     { "type": "text", "id": "problem_eyebrow", "label": "Problem eyebrow", "default": "The problem" },
-    { "type": "text", "id": "problem_heading", "label": "Problem heading", "default": "Six months on a tender is six months of contact." },
-    { "type": "textarea", "id": "problem_text", "label": "Problem text", "default": "The charge cable runs from the wall, over your bodywork, down to the battery. It rests on the same square inch of clear coat the entire storage season, and it moves every time the garage does. The towel you drape under it slips. The marks stay." },
+    { "type": "text", "id": "problem_heading", "label": "Problem heading", "default": "Swirl marks you never washed in." },
+    { "type": "textarea", "id": "problem_text", "label": "Problem text", "default": "Wash mitts and drying towels get blamed for swirl marks. On a stored car, the culprit is often the tender cable, resting on the same patch of clear coat for months and moving a little every day. No wash technique fixes what the cable keeps redoing." },
     { "type": "image_picker", "id": "problem_image", "label": "Problem image" },
     { "type": "image_picker", "id": "break_image", "label": "Full-bleed break image" },
     { "type": "text", "id": "break_heading", "label": "Break heading", "default": "Covered. Connected. Untouched." },
     { "type": "text", "id": "break_sub", "label": "Break subtext", "default": "The cable is the only thing still touching the car. Make it soft." },
-    { "type": "text", "id": "how_eyebrow", "label": "How eyebrow", "default": "The system" },
+    { "type": "text", "id": "how_eyebrow", "label": "How eyebrow", "default": "The routine" },
     { "type": "text", "id": "how_heading", "label": "How heading", "default": "Fitted once. Forgotten all season." },
     { "type": "text", "id": "steps_titles", "label": "Step titles (separate with |)", "default": "Slide|Position|Connect|Forget" },
     { "type": "textarea", "id": "steps_bodies", "label": "Step bodies (separate with |)", "default": "The sleeve slides over your existing tender cable. No disassembly, no tools.|Cover the run of cable that touches bodywork, sill or guard.|Clip to the battery exactly as you always do.|It stays put under a cover, in airflow, for the whole season." },

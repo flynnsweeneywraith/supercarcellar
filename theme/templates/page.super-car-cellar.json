@@ -24,9 +24,9 @@
         "feat1": {
           "type": "feature",
           "settings": {
-            "spec": "Matte woven shell",
-            "title": "Soft against clear coat",
-            "body": "A matte black woven fabric tube with a flat stitched seam. No gloss, no hooks, no magnets, no hardware anywhere the car can feel."
+            "spec": "Fitted, not draped",
+            "title": "Stays exactly where you lay it",
+            "body": "The sleeve lies flat over the guard and does not creep. Woven shell, flat stitched seam, a low-profile branded tab. Nothing to catch, nothing to rattle, nothing hard against the paint."
           }
         },
         "feat2": {
@@ -99,9 +99,16 @@
             "q": "What is the Twin Pack deal?",
             "a": "Two sleeves with the second at half price. Most collections do not stop at one car, and neither does the cable problem."
           }
+        },
+        "faq7": {
+          "type": "faq",
+          "settings": {
+            "q": "How do I care for the sleeve itself?",
+            "a": "A wipe with a damp microfibre cloth is all it needs. Keep compounds and solvents away from it, and if it ever needs more than a wipe, contact us before machine washing."
+          }
         }
       },
-      "block_order": ["faq1", "faq2", "faq3", "faq4", "faq5", "faq6"]
+      "block_order": ["faq1", "faq2", "faq3", "faq4", "faq5", "faq6", "faq7"]
     }
   },
   "order": ["hero", "story", "buy", "proof"]
