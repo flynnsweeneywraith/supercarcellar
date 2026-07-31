@@ -68,7 +68,12 @@ Format: `date · action · target/IDs · result`
 
 ## Pending queue
 
-_(empty — reconnect queue fully applied 2026-07-31, see log below)_
+1. Owner: duplicate the Horizon theme in admin (Online Store → Themes → ⋯ →
+   Duplicate). API cannot duplicate a theme and cannot write to the live one.
+2. When Shopify connector is back: `themeFilesUpsert` the 5 files in
+   `theme/` into the duplicate, then `pageUpdate` templateSuffix
+   `super-car-cellar` on page 118139879594.
+3. Owner previews in theme editor; publishing the theme is owner's click.
 
 - 2026-07-31 · **API write** · `update-product` ×2 · Single variant price
   59.95 → **29.99**; Twin Pack variant price 95.90 → **44.99** +
