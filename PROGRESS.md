@@ -126,6 +126,22 @@ _(Theme deploy queue fully applied 2026-07-31 — see log below.)_
   they had published the theme, not the page). Storefront remains behind
   the trial-plan password page. Result: success.
 
+- 2026-07-31 · Decision (owner) · The landing design should be the whole
+  site, not a separate page — homepage first.
+- 2026-07-31 · File create · `theme/templates/index.json` · Homepage
+  template using the 4 scc sections (same content as the page template).
+- 2026-07-31 · **API write** · `themeFilesUpsert` ×2 into unpublished
+  "Horizon" (147636748458) · 4 scc sections + `templates/index.json`
+  (replaces default Horizon homepage) + `templates/page.super-car-cellar.json`.
+  All verified via checksum query. Owner publishes "Horizon" to make the
+  homepage live (current MAIN "Copy of Horizon" is API-write-blocked).
+- 2026-07-31 · Env setup · Shopify CLI 4.5.2 installed globally ·
+  `scripts/theme-dev.sh` added (pull Horizon → overlay repo files →
+  `shopify theme dev`). Interactive CLI OAuth is blocked from this
+  container (HTTP 403); waiting on owner's Theme Access token
+  (`SHOPIFY_CLI_THEME_TOKEN`) to run the dev server. `theme-src/`
+  gitignored.
+
 ## Task status
 
 | # | Task | Status |

@@ -1,0 +1,115 @@
+{
+  "sections": {
+    "hero": {
+      "type": "scc-hero",
+      "blocks": {
+        "stat1": {
+          "type": "stat",
+          "settings": { "value": "0", "unit": "", "caption": "hooks, magnets or hardware touching your paint" }
+        },
+        "stat2": {
+          "type": "stat",
+          "settings": { "value": "60", "unit": "sec", "caption": "to fit over your existing tender cable", "count_up": true }
+        },
+        "stat3": {
+          "type": "stat",
+          "settings": { "value": "5-8", "unit": "yrs", "caption": "expected service life. Bought once." }
+        }
+      },
+      "block_order": ["stat1", "stat2", "stat3"]
+    },
+    "story": {
+      "type": "scc-story",
+      "blocks": {
+        "feat1": {
+          "type": "feature",
+          "settings": {
+            "spec": "Fitted, not draped",
+            "title": "Stays exactly where you lay it",
+            "body": "The sleeve lies flat over the guard and does not creep. Woven shell, flat stitched seam, a low-profile branded tab. Nothing to catch, nothing to rattle, nothing hard against the paint."
+          }
+        },
+        "feat2": {
+          "type": "feature",
+          "settings": {
+            "spec": "No disassembly",
+            "title": "Slides over the cable you already own",
+            "body": "No unplugging connectors, no rerouting. The sleeve slides along the run of cable that touches bodywork and stays where you put it."
+          }
+        },
+        "feat3": {
+          "type": "feature",
+          "settings": {
+            "spec": "Cover friendly",
+            "title": "Sits flat under an indoor cover",
+            "body": "The sleeve lies flat on the panel, so a car cover drapes over it without bunching or dragging the cable when the cover moves."
+          }
+        }
+      },
+      "block_order": ["feat1", "feat2", "feat3"]
+    },
+    "buy": {
+      "type": "scc-buy",
+      "settings": {
+        "product_single": "cord-cushion",
+        "product_twin": "cord-cushion-twin-pack"
+      }
+    },
+    "proof": {
+      "type": "scc-proof",
+      "blocks": {
+        "faq1": {
+          "type": "faq",
+          "settings": {
+            "q": "Will it fit my charger's cable?",
+            "a": "It slides over the cable of common battery tenders and trickle chargers. If your charger uses an unusually thick cable, contact us before ordering and we will confirm fit."
+          }
+        },
+        "faq2": {
+          "type": "faq",
+          "settings": {
+            "q": "Is it safe against paint?",
+            "a": "That is the entire point of the product. The shell is a soft matte woven fabric with a flat stitched seam. There are no hooks, magnets, zips or hard parts anywhere the car can feel."
+          }
+        },
+        "faq3": {
+          "type": "faq",
+          "settings": {
+            "q": "Does it work under a car cover?",
+            "a": "Yes. The sleeve sits flat on the bodywork, so an indoor cover drapes over it without bunching or pulling the cable."
+          }
+        },
+        "faq4": {
+          "type": "faq",
+          "settings": {
+            "q": "How long does fitting take?",
+            "a": "Under a minute. Slide the sleeve along the run of cable that touches the car, position it, done. It stays in place for the whole storage season."
+          }
+        },
+        "faq5": {
+          "type": "faq",
+          "settings": {
+            "q": "Do you ship internationally?",
+            "a": "Yes. Orders ship from Australia with tracking. Duties and taxes for your country are shown or advised at checkout. [PLACEHOLDER: confirm DDP vs DDU before launch]"
+          }
+        },
+        "faq6": {
+          "type": "faq",
+          "settings": {
+            "q": "What is the Twin Pack deal?",
+            "a": "Two sleeves with the second at half price. Most collections do not stop at one car, and neither does the cable problem."
+          }
+        },
+        "faq7": {
+          "type": "faq",
+          "settings": {
+            "q": "How do I care for the sleeve itself?",
+            "a": "A wipe with a damp microfibre cloth is all it needs. Keep compounds and solvents away from it, and if it ever needs more than a wipe, contact us before machine washing."
+          }
+        }
+      },
+      "block_order": ["faq1", "faq2", "faq3", "faq4", "faq5", "faq6", "faq7"]
+    }
+  },
+  "order": ["hero", "story", "buy", "proof"]
+}

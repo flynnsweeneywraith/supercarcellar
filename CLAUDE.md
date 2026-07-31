@@ -98,6 +98,13 @@ explain steps plainly, avoid jargon, and never assume Shopify admin knowledge.
   Page 118139879594: templateSuffix `super-car-cellar`, **published
   2026-07-31** (owner intent); old HTML body still stored but the template's
   sections render instead. Storefront still behind trial-plan password.
+- "Horizon" (`147636748458`, UNPUBLISHED) now carries the full-site version:
+  scc sections + `templates/index.json` homepage (replaced Horizon's default
+  homepage; original still recoverable from Copy of Horizon) + the page
+  template. Owner publishing "Horizon" makes the landing design the
+  homepage. Local dev: `scripts/theme-dev.sh` (Shopify CLI installed;
+  needs owner's Theme Access token via `SHOPIFY_CLI_THEME_TOKEN`;
+  interactive CLI OAuth 403s from this container).
 - `themeFilesUpsert` quirks: with `body.type: URL` validation errors are
   SILENT (empty upsertedThemeFiles, no userErrors — always verify with a
   theme files query + checksumMd5); inline BASE64/TEXT surfaces the real
