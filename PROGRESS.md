@@ -236,6 +236,13 @@ _(Theme deploy queue fully applied 2026-07-31 — see log below.)_
   Announcement ticker slowed: 26s → 42s per loop (section default + header
   group setting).
 
+- 2026-07-31 · File edit + **API write** · `themeFilesUpsert` · Smooth
+  scrolling added (motion-safe) so every Buy CTA glides to #scc-buy. Link
+  audit: hero, final band, sticky bar, ticker all target the buy module.
+  Purchase chain re-verified: both products ACTIVE, published, priced
+  29.99/44.99, 100 in stock. Remaining for real checkout: owner picks a
+  plan + activates a payment provider (admin-only).
+
 ## Task status
 
 | # | Task | Status |
