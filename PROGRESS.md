@@ -60,6 +60,12 @@ Format: `date · action · target/IDs · result`
   supplied product images via chat (not uploadable from here; AI packaging
   mock has a fake QR code — composite real artwork before publishing).
 
+- 2026-07-31 · File change · `assets/` · Owner uploaded product imagery via
+  GitHub; renamed to `packaging-hero.png` (contains fake AI QR code — must be
+  composited before customer-facing use), `sleeve-coiled.png`, plus
+  `supercar_cellar_logo_transparent.svg` (SVG wrapper around embedded PNG,
+  637x546 — not true vector).
+
 ## Pending queue — apply when Shopify connector returns
 
 1. `productUpdate` / variant update: Cord Cushion single price 59.95 → 29.99.
@@ -71,8 +77,12 @@ Format: `date · action · target/IDs · result`
    at 50% off), future-dated like before; deactivate/delete BUNDLE20.
 4. `pageUpdate`: push updated listicle HTML (new prices) to page
    `gid://shopify/Page/118139879594`.
-5. Product images: if owner commits files to repo `assets/`, upload via
-   staged uploads + productCreateMedia; otherwise owner drags into admin.
+5. Product images (files now in `assets/`): upload `sleeve-coiled.png` +
+   `packaging-hero.png` via staged uploads → attach to both products
+   (sleeve shot first/featured; alt text set) → upload both to Shopify
+   Files for CDN URLs → replace the two TODO image slots in the listicle
+   page HTML with the CDN URLs (file + pageUpdate). Logo SVG available for
+   theme use later (owner decision; it is an embedded-PNG SVG, 637x546).
 
 ## Task status
 
