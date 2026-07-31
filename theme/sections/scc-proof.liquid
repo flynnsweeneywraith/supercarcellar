@@ -28,7 +28,10 @@
   .scc-faq__list{margin-top:44px;max-width:820px}
   .scc-faq details{border-bottom:1px solid var(--scc-line,rgba(230,231,234,.08))}
   .scc-faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;
-    gap:20px;padding:22px 0;font-weight:700;font-size:16.5px}
+    gap:20px;padding:22px 0;font-weight:700;font-size:16.5px;color:var(--scc-ink,#e6e7ea);
+    -webkit-tap-highlight-color:transparent}
+  .scc-faq summary:hover,.scc-faq summary:focus,.scc-faq summary:active,
+  .scc-faq details[open] summary{color:var(--scc-ink,#e6e7ea)}
   .scc-faq summary::-webkit-details-marker{display:none}
   .scc-faq summary::after{content:"+";font-size:22px;font-weight:400;color:var(--scc-mut,#9ea0a8);flex:none;transition:transform .2s ease}
   .scc-faq details[open] summary::after{transform:rotate(45deg)}

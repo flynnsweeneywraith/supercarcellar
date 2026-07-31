@@ -243,6 +243,19 @@ _(Theme deploy queue fully applied 2026-07-31 — see log below.)_
   29.99/44.99, 100 in stock. Remaining for real checkout: owner picks a
   plan + activates a payment provider (admin-only).
 
+- 2026-07-31 · Owner action · Theme published · "Horizon" (147636748458)
+  is now MAIN — the full site design is live (behind trial password).
+  MCP write-block flipped to it accordingly.
+- 2026-07-31 · File edits + **API write** · `themeFilesUpsert` ×8 into
+  "Copy of Horizon" (147638354090, now the draft) · Synced ALL current
+  files (4 scc sections, announce ticker, header-group, both templates)
+  plus two mobile fixes: buy grid/tabs/detail switched to minmax(0,1fr) +
+  min-width:0 so Add-to-cart and the 2-sleeves tab no longer overflow on
+  iPhone (tighter button padding under 480px); FAQ summary color pinned to
+  ink white in hover/focus/active/open + tap-highlight removed (was going
+  black on touch). Checksums verified. Owner publishes "Copy of Horizon"
+  to ship the fixes.
+
 ## Task status
 
 | # | Task | Status |
