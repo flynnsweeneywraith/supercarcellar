@@ -55,26 +55,30 @@ explain steps plainly, avoid jargon, and never assume Shopify admin knowledge.
   burgundy. Voice: understated, no exclamation marks, no hype adjectives.
   Sell paint protection, never "cable management".
 - Product: **Cord Cushion** · `gid://shopify/Product/8586440114346` · DRAFT ·
-  SKU `SCC-CC-001` · **AUD 29.99 (owner-confirmed 2026-07-31; store still
-  shows 59.95 until reconnect — see pending queue in PROGRESS.md)** · vendor
-  "Supercar Cellar" · type "Paint Protection" · inventory tracked, qty 0 ·
-  no images yet (owner has real photography; AI mock QR codes must never
-  ship).
+  SKU `SCC-CC-001` · **AUD 29.99** (owner-confirmed 2026-07-31, applied) ·
+  vendor "Supercar Cellar" · type "Paint Protection" · inventory tracked,
+  qty 0 · 2 images attached (sleeve-coiled featured + packaging-hero; the
+  packaging shot's QR code is an AI mock — composite real artwork before
+  anything goes ACTIVE/published).
 - Pricing decision (owner, 2026-07-31): single AUD 29.99; pair offer is
   **50% off the second unit** → Twin Pack AUD 44.99. Owner is aware margin
   at this price is thin per the brief's cost model.
+- Image CDN URLs: `https://cdn.shopify.com/s/files/1/0720/0296/1578/files/sleeve-coiled.png`
+  and `.../packaging-hero.png` (also used in the listicle page body).
 - Full product/market brief lives in the 2026-07-31 chat: unit economics say
   single-SKU paid DTC doesn't work (contribution AUD ~21/unit vs CAC ~78);
   viable routes are kits (~USD 139 AOV), wholesale, B2B storage operators,
   audience attach.
 - Product: **Cord Cushion — Twin Pack** · `gid://shopify/Product/8586440868010`
-  · DRAFT · SKU `SCC-CC-002` · target AUD 44.99 (store still shows 95.90
-  until reconnect) · handle `cord-cushion-twin-pack`.
+  · DRAFT · SKU `SCC-CC-002` · **AUD 44.99** (applied) · handle
+  `cord-cushion-twin-pack` · same 2 images attached.
 - Collection: **Cord Cushion Singles** · `gid://shopify/Collection/362710827178`
-  · manual, single product only · exists as BUNDLE20 scope so the code cannot
-  stack with Twin Pack pricing. Do not add the Twin Pack to it.
-- Discount: **BUNDLE20** · `gid://shopify/DiscountCodeNode/1555142213802` ·
-  20% off min qty 2, scoped to Cord Cushion Singles · starts 2026-09-01 AEST.
+  · manual, single product only · was the BUNDLE20 scope; now unused by any
+  discount (PAIR50 targets products directly). Safe to delete or repurpose.
+- Discount: **PAIR50** · `gid://shopify/DiscountCodeNode/1555149979818` ·
+  Buy X Get Y: buy 1 Cord Cushion single, get 2nd at 50% off · SCHEDULED,
+  starts 2026-09-01 AEST. (BUNDLE20 deleted 2026-07-31 — offer changed to
+  half-price-second-unit.)
 - Page: listicle landing page · `gid://shopify/Page/118139879594` · handle
   `tender-cable-paint-protection` · unpublished · source of truth is
   `pages/tender-cable-paint-listicle.html` in this repo (edit file, then

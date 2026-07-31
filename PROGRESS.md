@@ -66,23 +66,29 @@ Format: `date · action · target/IDs · result`
   `supercar_cellar_logo_transparent.svg` (SVG wrapper around embedded PNG,
   637x546 — not true vector).
 
-## Pending queue — apply when Shopify connector returns
+## Pending queue
 
-1. `productUpdate` / variant update: Cord Cushion single price 59.95 → 29.99.
-2. Variant update + `productUpdate` (descriptionHtml): Twin Pack price
-   95.90 → 44.99; description currently claims "20% off" and "AUD 119.90 /
-   95.90" — rewrite to "second sleeve at half price", AUD 59.98 / 44.99.
-3. Discounts: BUNDLE20 (basic 20% code) no longer matches the offer.
-   Replace with a Buy X Get Y code (buy 1 Cord Cushion single, get the 2nd
-   at 50% off), future-dated like before; deactivate/delete BUNDLE20.
-4. `pageUpdate`: push updated listicle HTML (new prices) to page
-   `gid://shopify/Page/118139879594`.
-5. Product images (files now in `assets/`): upload `sleeve-coiled.png` +
-   `packaging-hero.png` via staged uploads → attach to both products
-   (sleeve shot first/featured; alt text set) → upload both to Shopify
-   Files for CDN URLs → replace the two TODO image slots in the listicle
-   page HTML with the CDN URLs (file + pageUpdate). Logo SVG available for
-   theme use later (owner decision; it is an embedded-PNG SVG, 637x546).
+_(empty — reconnect queue fully applied 2026-07-31, see log below)_
+
+- 2026-07-31 · **API write** · `update-product` ×2 · Single variant price
+  59.95 → **29.99**; Twin Pack variant price 95.90 → **44.99** +
+  descriptionHtml rewritten ("second sleeve at half price", AUD 59.98/44.99).
+  Result: success.
+- 2026-07-31 · **API write** · `stagedUploadsCreate` + curl (2×201) +
+  `productCreateMedia` ×2 · Uploaded `sleeve-coiled.png` +
+  `packaging-hero.png`; attached to both products with alt text (media
+  36734673158314/191082 on single, 36734673977514/674010282 on twin), all
+  READY. CDN: `.../files/sleeve-coiled.png` + `.../files/packaging-hero.png`.
+- 2026-07-31 · **API write** · `discountCodeDelete` · Deleted BUNDLE20
+  (1555142213802) — 20% offer superseded by owner decision. Result: success.
+- 2026-07-31 · **API write** · `discountCodeBxgyCreate` · Created **PAIR50** ·
+  `gid://shopify/DiscountCodeNode/1555149979818` · buy 1 Cord Cushion single,
+  get 2nd at 50% off · SCHEDULED, starts 2026-09-01 AEST. Result: success.
+- 2026-07-31 · **API write** · `productUpdate` · Twin Pack SEO description
+  updated (removed "20% off", now "second sleeve at half price").
+- 2026-07-31 · File edit + **API write** · `pageUpdate` · Listicle page body
+  updated: both photography slots replaced with Shopify CDN images (alt text
+  set). Page remains **unpublished**. Result: success.
 
 ## Task status
 
